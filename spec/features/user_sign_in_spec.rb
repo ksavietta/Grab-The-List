@@ -21,8 +21,14 @@ feature 'sign up', %Q{
     expect(page).to have_content("Sign Out")
   end
 
-  scenario 'required information is  not supplied'
+  scenario 'required information is not supplied' do
+    visit root_path
+    click_link 'Sign Up'
 
+    click_button 'Sign Up'
+    expect(page).to have_content("can't be blank")
+    expect(page).to_not have_content("Sign Out")
+  end
   scenario 'password confirmation does not match confirmation'
 
 end
