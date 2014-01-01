@@ -32,6 +32,29 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'simple_form'
+gem 'devise'
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'valid_attribute'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'quiet_assets'
+  gem 'meta_request'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
+  gem 'guard-livereload', require:false
+  gem 'terminal-notifier-guard'
+
+end
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
