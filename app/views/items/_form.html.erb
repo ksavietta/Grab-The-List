@@ -1,26 +1,7 @@
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this issue from being saved:</h2>
+<%= simple_form_for(@item) do |f| %>
 
-      <ul>
-      <% @item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.input :name %>
+  <%= f.input :purchased, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.submit %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name%>
-  </div>
-  <div class="field">
-    <%= f.label :purchased %><br>
-    <%= f.check_box :purchased %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
