@@ -17,4 +17,16 @@ describe User do
     expect(user).to_not be_valid
     expect(user.errors[:password_confirmation]).to_not be_blank
   end
+
+  describe 'admin checks' do
+    it 'is not an admin if the role is not admin' do
+      user = FactoryGirl.build(:user)
+      expect(user.is_admin?).to_not be_true
+    end
+
+    it 'is an admin if the role is admin' do
+      user = FactoryGirl.build(:user, role: 'admin')
+      expect(user.is_admin?).to be_true
+    end
+  end
 end

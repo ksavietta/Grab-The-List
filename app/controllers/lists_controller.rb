@@ -1,6 +1,6 @@
 class ListsController<ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
-
+  # before_action :authorize_user
 # GET /lists
   # GET /lists.json
   def index
@@ -59,5 +59,11 @@ class ListsController<ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
       params.require(:list).permit(:name, :description, :state, :price)
+    end
+
+    def authorize_user
+      unless user_signed_in? and current_user.is_admin?
+        raise ActionController::RoutingError.new('Not Found')
+      end
     end
 end
