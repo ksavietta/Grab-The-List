@@ -7,23 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Grab The List", root_path%></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        <%- if user_signed_in? -%>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+        <%- else -%>
+          <li><%= link_to 'Sign In', new_user_session_path%></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path%></li>
+        <%- end -%>
+      </ul>
+    </section>
+  </nav>
+
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
-  <nav>
-    <ul>
-      <%- if user_signed_in? -%>
-        <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-      <%- else -%>
-        <li><%= link_to 'Sign In', new_user_session_path%></li>
-        <li><%= link_to 'Sign Up', new_user_registration_path%></li>
 
-      <%- end -%>
-    </ul>
-  </nav>
-
-<%= yield %>
-
+    <div class="row">
+      <div class="large-10 columns"><%= yield %></div>
+      <div class="large-2 columns"><h1>SIDE BAR FOR GROUPS AND COST SHARING INFO</h1></div>
+    </div>
 
 </body>
 </html>
+
+
+
