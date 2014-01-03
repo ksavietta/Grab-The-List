@@ -1,21 +1,21 @@
 <p>
   <strong>Title:</strong>
-  <%= @list.name %>
+  <%=  link_to @list.name, edit_list_path(@list)  %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @list.description %>
+  <%= link_to @list.description , edit_list_path(@list)%>
 </p>
 
 <p>
   <strong>Purchased:</strong>
-  <%= @list.state %>
+  <%= link_to @list.state , edit_list_path(@list)%>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @list.price %>
+  <%=  link_to @list.price, edit_list_path(@list)%>
 </p>
 
 <p>
@@ -25,5 +25,4 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
