@@ -8,5 +8,5 @@ class List<ActiveRecord::Base
 
   validates :price,
     format: {with: /\A\d+(\.\d{1,2})?\z/, allow_nil: true},
-    numericality:true
+    numericality:true, allow_nil:true
 end
