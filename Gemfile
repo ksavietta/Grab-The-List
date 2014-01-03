@@ -34,7 +34,6 @@ end
 
 group :production, :staging do
   gem 'rails_12factor'
-
 end
 
 
@@ -53,11 +52,13 @@ group :development, :test do
   gem 'meta_request'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
   gem 'guard-rspec'
   gem 'guard-livereload', require:false
   gem 'terminal-notifier-guard'
-
 end
 
 
