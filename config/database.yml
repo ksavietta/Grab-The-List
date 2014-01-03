@@ -1,0 +1,32 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: gtl_second_development
+  pool: 5
+  username:
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: gtl_second_test
+  pool: 5
+  username:
+  password:
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: gtl_second_staging
+  pool: 5
+  username:
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: gtl_second_production
+  pool: 5
+  username:
+  password:
