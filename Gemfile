@@ -32,6 +32,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :production, :staging do
+  gem 'rails_12factor'
+
+end
+
+
 gem 'simple_form'
 gem 'devise'
 
@@ -66,3 +72,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby "2.0.0"
