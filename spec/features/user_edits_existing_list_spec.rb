@@ -5,8 +5,12 @@ I would like to edit a list
 so that I can see updated lists on my account.} do
 
   scenario 'user visits list page and selects list' do
-    FactoryGirl.create(:list)
-    visit root_path
+    user = FactoryGirl.create(:user)
+    list = FactoryGirl.create(:list)
+
+    sign_in_as user
+
+    save_and_open_page
     click_link 'ListName1'
     expect(page).to have_content('ListName1')
 
