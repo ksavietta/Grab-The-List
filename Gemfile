@@ -39,6 +39,8 @@ end
 
 gem 'simple_form'
 gem 'devise'
+gem "mailcatcher"
+gem 'zurb-foundation'
 
 group :development, :test do
   gem 'pry-rails'
