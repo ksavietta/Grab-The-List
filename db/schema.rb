@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20140107135635) do
   end
 
   create_table "items", force: true do |t|
-    t.string  "name",                      null: false
-    t.boolean "purchased", default: false
-    t.integer "list_id",                   null: false
+    t.string   "name",         null: false
+    t.datetime "purchased_at"
+    t.integer  "list_id",      null: false
   end
 
   create_table "lists", force: true do |t|
