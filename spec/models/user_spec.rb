@@ -32,4 +32,6 @@ describe User do
 
   it { should have_many :group_users }
   it { should have_many(:groups).through(:group_users)}
+
+  it { should have_many(:items).through(:groups)}
 end

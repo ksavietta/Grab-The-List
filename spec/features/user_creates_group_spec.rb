@@ -12,6 +12,6 @@ feature 'user signs in', %Q{
 
     expect(page).to have_content('Welcome Back!')
     expect(page).to have_content('Sign Out')
-    expect(page).to have_content('Please create a group!')
+    expect(page).to have_content('create group')
   end
 end
