@@ -3,4 +3,7 @@ class Item<ActiveRecord::Base
 
   belongs_to :list,
     inverse_of: :items
+
+  belongs_to :group,
+    inverse_of: :items
 end
