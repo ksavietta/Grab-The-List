@@ -7,18 +7,19 @@ feature 'user signs in', %Q{
 
   scenario ' an existing user specifies a valid email and password' do
     user = FactoryGirl.create(:user)
-    visit root_path
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    list = FactoryGirl.create(:list)
+
+    sign_in_as user
+
 
     expect(page).to have_content('Welcome Back!')
     expect(page).to have_content('Sign Out')
   end
 
   scenario 'a nonexistant email and password is supplied' do
-    visit root_path
+    user = FactoryGirl.create(:user)
+
+    visit new_user_session_path
     click_link 'Sign In'
     fill_in 'Email', with: 'notreal@example.com'
     fill_in 'Password', with: 'notarealpassword'

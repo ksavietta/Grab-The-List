@@ -10,10 +10,10 @@ so that I can see updated lists on my account.} do
 
     sign_in_as user
 
-    click_link 'ListName1'
-    expect(page).to have_content('ListName1')
+    click_link list.name
+    expect(page).to have_content(list.name)
 
-    click_link 'ListName1'
+    click_link 'Edit List Info'
     expect(page).to have_content("Make Changes to")
     fill_in 'Name', with: 'TestTest'
     fill_in 'Description', with: 'Test Description'
