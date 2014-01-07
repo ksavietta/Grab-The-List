@@ -8,8 +8,5 @@ describe List do
 
   it { should have_many(:items).dependent(:destroy)}
 
-
-  it 'should include an optional claimed purchaser_id'
-  it 'shoudl belong to a group'
 end
 
