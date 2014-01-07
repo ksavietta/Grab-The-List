@@ -39,7 +39,6 @@ end
 
 gem 'simple_form'
 gem 'devise'
-gem "mailcatcher"
 gem 'zurb-foundation'
 
 group :development, :test do
@@ -54,6 +53,7 @@ group :development, :test do
   gem 'meta_request'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem "mailcatcher"
 
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
