@@ -9,4 +9,11 @@ class User < ActiveRecord::Base
   def is_admin?
     role == 'admin'
   end
+
+  has_many :group_users,
+    inverse_of: :user
+
+  has_many :groups,
+    through: :group_users
+
 end
