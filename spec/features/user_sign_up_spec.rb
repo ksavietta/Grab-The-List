@@ -7,17 +7,15 @@ feature 'sign up', %Q{
 } do
 
   scenario 'specifying valid and required information' do
-    visit root_path
-    click_link 'Sign Up'
+    visit new_user_registration_path
     fill_in 'First Name', with: 'John'
     fill_in 'Last Name', with: 'Doe'
     fill_in 'Email', with: 'user@example.com'
-    fill_in 'user_password', with: 'password'
-    fill_in 'Password Confirmation', with: 'password'
+    fill_in "user_password", with: 'password'
+    fill_in "Password Confirmation", with: 'password'
     click_button 'Sign Up'
 
-    expect(page).to have_content("You're in!")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("message with a confirmation")
   end
 
   scenario 'required information is not supplied' do
