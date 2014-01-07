@@ -29,4 +29,7 @@ describe User do
       expect(user.is_admin?).to be_true
     end
   end
+
+  it { should have_many :group_users }
+  it { should have_many(:groups).through(:group_users)}
 end
