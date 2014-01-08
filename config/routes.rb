@@ -6,6 +6,7 @@ GtlSecond::Application.routes.draw do
 
   resources :groups do
     resources :items, only:[:create]
+    resources :purchase, only:[:create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
