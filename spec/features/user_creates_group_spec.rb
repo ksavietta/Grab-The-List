@@ -13,5 +13,10 @@ feature 'user signs in', %Q{
     expect(page).to have_content('Welcome Back!')
     expect(page).to have_content('Sign Out')
     expect(page).to have_content('New Group')
+
+    fill_in 'Name', with: "GroupTest"
+    click_on "Create Group"
+
+    expect(page).to have_content("GroupTest")
   end
 end
