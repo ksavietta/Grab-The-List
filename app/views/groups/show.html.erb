@@ -1,7 +1,18 @@
 <p>
   <strong>Group Name:</strong>
   <%= @group.name %>
+  <%= link_to 'Edit Group', edit_group_path(@group) %>
 </p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<% @group.items.each do |item| %>
+  <%= item.name %><br/> <br/>
+<% end %>
+
+<br/>
+<%= render 'items/form', group: @group %>
+
+
+
+
+
+<%= link_to 'Take me back to my groups, please!', groups_path %>

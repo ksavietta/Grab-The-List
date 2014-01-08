@@ -1,7 +1,7 @@
 class HomeController<ApplicationController
 
   def index
-    redirect_to lists_path
+    redirect_to groups_path
   end
 
 end

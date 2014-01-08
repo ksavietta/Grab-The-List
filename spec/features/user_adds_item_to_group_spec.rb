@@ -11,13 +11,15 @@ feature 'user adds item to group', %Q{
     sign_in_as user
     fill_in 'Name', with: "GroupTest"
     click_on "Create Group"
-
     expect(page).to have_content("GroupTest")
 
     click_link "GroupTest"
     expect(page).to have_content("GroupTest")
 
-    click_link "Add Item"
+    fill_in 'New Item:', with: "Eggs"
+    click_button "Add Item"
+
+    expect(page).to have_content("Eggs")
   end
 
 end

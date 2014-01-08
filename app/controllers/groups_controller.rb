@@ -9,7 +9,7 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
     @group = Group.new(group_params)
     if @group.save
       current_user.groups << @group
-      redirect_to @group
+      redirect_to groups_path
     else
       render 'new'
     end
@@ -28,7 +28,11 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
   end
 
   def index
-    @groups = current_user.groups
+    if user_signed_in?
+      @groups = current_user.groups
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def destroy
@@ -37,7 +41,7 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
   end
 
   def show
-
+    @item = Item.new
   end
 
   private

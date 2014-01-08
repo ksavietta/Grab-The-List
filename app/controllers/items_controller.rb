@@ -6,12 +6,16 @@ class ItemsController<ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @group = Group.find(params[:group_id])
+    @item = @group.items.build(item_params)
 
     if @item.save
-      redirect_to @item
+      redirect_to group_path(@group),
+        notice: "Your item was created successfully."
     else
       render 'new'
+      flash.now[:notice] = "There was an issue with your item. Please try again."
+      render action: "../groups/show"
     end
   end
 
@@ -50,3 +54,6 @@ class ItemsController<ApplicationController
   end
 
 end
+
+
+

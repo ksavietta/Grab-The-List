@@ -1,7 +1,6 @@
-<%= simple_form_for(@item) do |f| %>
+<%= simple_form_for [@group, @item] do |f| %>
 
-  <%= f.input :name %>
-  <%= f.input :purchased, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.submit %>
+  <%= f.input :name, label: "New Item:" %>
+  <%= f.button :submit, "Add Item" %>
 
 <% end %>
