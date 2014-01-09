@@ -1,0 +1,36 @@
+
+<%- if user_signed_in? -%>
+  <h1>purchases</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @purchases.each do |purchase| %>
+        <tr>
+          <td><%= link_to purchase.name, purchase %></td>
+          <td><%= purchase.description %></td>
+          <td><%= purchase.price %></td>
+          <td><%= link_to 'Show', group_purchase_path %></td>
+          <td><%= link_to 'Edit', edit_group_purchase_path(purchase) %></td>
+          <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to "New purchase", new_group_purchase_path, :class => "button", :method => :get  %>
+<%- else -%>
+  <h1>It seems that you are not signed in! Please do so to make your purchases!</h1>
+<%- end -%>

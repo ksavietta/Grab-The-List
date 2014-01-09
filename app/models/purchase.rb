@@ -1,5 +1,4 @@
-class Purchase<ActiveRecord::Base
-  validates_presence_of :purchased_at
+class Purchase < ActiveRecord::Base
   validates_presence_of :cost
 
   validates :cost,
@@ -11,4 +10,20 @@ class Purchase<ActiveRecord::Base
 
   belongs_to :user, inverse_of: :purchases
   belongs_to :group, inverse_of: :purchases
+
+  def make_purchase(item_ids)
+
+    if save
+      item_ids.each do |item_id|
+        if item_id != ""
+          item = Item.find(item_id)
+          item.purchase_id = self.id
+        end
+      end
+      true
+    else
+      false
+    end
+  end
+
 end

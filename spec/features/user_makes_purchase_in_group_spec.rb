@@ -18,11 +18,12 @@ feature 'user makes a purchase', %Q{
     fill_in "New Item:", with: "Milk"
     click_button "Add Item"
 
-    click_button "Make Purchase"
-    expect(page).to have_content("Which items are you buying?")
-    check_box "Eggs"
-    click_button "Purchase"
-    expect(page).to have_content("Milk")
-    expect(page).to_not have_content("Eggs")
+    click_link "Make a Purchase"
+    expect(page).to have_content("Make a purchase for GroupTest")
+    fill_in "Cost", with: "23"
+    check "Eggs"
+    click_button "Create Purchase"
+    expect(page).to have_content("Eggs")
+    expect(page).to_not have_content("Milk")
   end
 end

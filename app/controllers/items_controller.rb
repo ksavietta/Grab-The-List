@@ -50,7 +50,7 @@ class ItemsController<ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :purchased, :list_id)
+    params.require(:item).permit(:name, :purchased, :list_id, :user_id, :group_id)
   end
 
 end

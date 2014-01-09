@@ -12,7 +12,7 @@
 <%= render 'items/form', group: @group %>
 
 
-<%= link_to 'Make a Purchase' %>
+<%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
 <br>
 <br>
 <%= link_to 'Take me back to my groups, please!', groups_path %>
