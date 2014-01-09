@@ -34,4 +34,6 @@ describe User do
   it { should have_many(:groups).through(:group_users)}
 
   it { should have_many(:items).through(:groups)}
+
+  it {should have_many(:purchases)}
 end

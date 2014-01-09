@@ -9,4 +9,8 @@ class Group<ActiveRecord::Base
 
   has_many :items
 
+  has_many :purchases,
+    inverse_of: :group,
+    dependent: :destroy
+
 end
