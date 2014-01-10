@@ -41,7 +41,9 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
   end
 
   def show
+    @groups = current_user.groups
     @item = Item.new
+
   end
 
   private
