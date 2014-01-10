@@ -33,4 +33,4 @@
 <%= link_to 'Edit purchase Info', edit_group_purchase_path(@group, @purchase) %>
 </p>
 
-<%= link_to 'Back', group_purchases_path %>
+<%= link_to "Back to #{@group.name}", group_path(@group) %>

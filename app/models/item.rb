@@ -9,4 +9,6 @@ class Item<ActiveRecord::Base
 
   belongs_to :purchase,
     inverse_of: :items
+
+
 end
