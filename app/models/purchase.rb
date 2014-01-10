@@ -12,7 +12,6 @@ class Purchase < ActiveRecord::Base
   belongs_to :group, inverse_of: :purchases
 
   def make_purchase(item_ids)
-
     if save
       item_ids.each do |item_id|
         if item_id != ""
@@ -24,6 +23,10 @@ class Purchase < ActiveRecord::Base
     else
       false
     end
+  end
+
+  def formatted_date
+    self.created_at.strftime("%Y-%m-%d")
   end
 
 end

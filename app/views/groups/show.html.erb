@@ -4,7 +4,7 @@
   <%= link_to 'Edit Group', edit_group_path(@group) %>
 </p>
 
-<% @group.items.each do |item| %>
+<% @group.unpurchased_items.each do |item| %>
   <%= item.name %><br/> <br/>
 <% end %>
 
@@ -20,18 +20,15 @@
           <th>Purchase Made By:</th>
           <th>Cost:</th>
           <th>Purchase made on:</th>
-          <th></th>
-          <th></th>
-          <th></th>
         </tr>
       </thead>
 
       <tbody>
-        <% @group.purchases.each do |purchase| %>
+        <% @group.ordered_purchases.each do |purchase| %>
           <tr>
             <td><%= "#{purchase.user.first_name} #{purchase.user.last_name}"%></td>
             <td><%= purchase.cost %></td>
-            <td><%= purchase.created_at %></td>
+            <td><%= purchase.formatted_date %></td>
           </tr>
         <% end %>
       </tbody>
