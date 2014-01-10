@@ -11,6 +11,35 @@
 <br/>
 <%= render 'items/form', group: @group %>
 
+<%content_for :side_bar do%>
+    <h1>purchases</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Purchase Made By:</th>
+          <th>Cost:</th>
+          <th>Purchase made on:</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @group.purchases.each do |purchase| %>
+          <tr>
+            <td><%= "#{purchase.user.first_name} #{purchase.user.last_name}"%></td>
+            <td><%= purchase.cost %></td>
+            <td><%= purchase.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <% end %>
+
 
 <%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
 <br>

@@ -1,36 +1,38 @@
 
 <%- if user_signed_in? -%>
-  <h1>purchases</h1>
+  <%content_for :side_bar do%>
+    <h1>purchases</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @purchases.each do |purchase| %>
+    <table>
+      <thead>
         <tr>
-          <td><%= link_to purchase.name, purchase %></td>
-          <td><%= purchase.description %></td>
-          <td><%= purchase.price %></td>
-          <td><%= link_to 'Show', group_purchase_path %></td>
-          <td><%= link_to 'Edit', edit_group_purchase_path(purchase) %></td>
-          <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th>Purchase Made By:</th>
+          <th>Cost:</th>
+          <th>Purchase made on:</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
 
-  <br>
+      <tbody>
+        <% @purchases.each do |purchase| %>
+          <tr>
+            <td><%= link_to purchase.user.name, purchase %></td>
+            <td><%= purchase.cost %></td>
+            <td><%= purchase.created_at %></td>
+            <td><%= link_to 'Show', group_purchase_path %></td>
+            <td><%= link_to 'Edit', edit_group_purchase_path(purchase) %></td>
+            <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <%= button_to "New purchase", new_group_purchase_path, :class => "button", :method => :get  %>
-<%- else -%>
-  <h1>It seems that you are not signed in! Please do so to make your purchases!</h1>
-<%- end -%>
+    <br>
+    <% end %>
+
+    <%= button_to "New purchase", new_group_purchase_path, :class => "button", :method => :get  %>
+  <%- else -%>
+    <h1>It seems that you are not signed in! Please do so to make your purchases!</h1>
+  <%- end -%>
