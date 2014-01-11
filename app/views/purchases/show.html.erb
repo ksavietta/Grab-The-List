@@ -1,0 +1,36 @@
+<h1>Your Purchase on <%=@purchase.created_at%></h1>
+
+<p>
+  <strong>Purchased:</strong>
+  <%= @purchase.created_at %>
+</p>
+
+<p>
+  <strong>Group You're Purchasing For:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Items:</strong>
+  <% @purchase.items.each do |item| %>
+      <% if @purchase.items.count > 1 %>
+        <%= "#{item.name}, " %>
+      <% else %>
+        <%= item.name %>
+      <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @purchase.cost%>
+</p>
+
+
+
+
+<p>
+<%= link_to 'Edit purchase Info', edit_group_purchase_path(@group, @purchase) %>
+</p>
+
+<%= link_to "Back to #{@group.name}", group_path(@group) %>

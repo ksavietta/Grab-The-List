@@ -6,4 +6,9 @@ class Item<ActiveRecord::Base
 
   belongs_to :group,
     inverse_of: :items
+
+  belongs_to :purchase,
+    inverse_of: :items
+
+
 end

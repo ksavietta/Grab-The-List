@@ -33,8 +33,13 @@
     <% end -%>
 
     <div class="row">
-      <div class="large-10 columns"><%= yield %></div>
-      <div class="large-2 columns"><h1>SIDE BAR FOR GROUPS AND COST SHARING INFO</h1></div>
+      <div class="medium-3 columns">
+        <%= yield :left_side_bar%>
+      </div>
+      <div class="medium-6 columns"><%= yield %></div>
+      <div class="medium-3 columns">
+        <%= yield :right_side_bar%>
+      </div>
     </div>
 
 </body>

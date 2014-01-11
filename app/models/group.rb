@@ -9,4 +9,21 @@ class Group<ActiveRecord::Base
 
   has_many :items
 
+  has_many :purchases,
+    inverse_of: :group,
+    dependent: :destroy
+
+  def ordered_purchases
+    self.purchases.order('created_at DESC')
+  end
+
+  def purchased_items
+    self.items.where('purchase_id is NOT NULL')
+  end
+
+  def unpurchased_items
+    self.items.where('purchase_id is NULL')
+  end
+
+
 end

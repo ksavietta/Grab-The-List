@@ -1,18 +1,71 @@
-<p>
-  <strong>Group Name:</strong>
-  <%= @group.name %>
-  <%= link_to 'Edit Group', edit_group_path(@group) %>
-</p>
+<% content_for :left_side_bar do%>
+<h1><%=@group.name%> Group</h1>
 
-<% @group.items.each do |item| %>
-  <%= item.name %><br/> <br/>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Group Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= link_to group.name, group %></td>
+        <td><%= link_to 'Destroy', group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<br/>
-<%= render 'items/form', group: @group %>
+<br>
+<%= link_to 'New group', new_group_path %>
+<% end%>
+
+
+  <p>
+    <strong>Group Name:</strong>
+    <%= @group.name %>
+    <%= link_to 'Edit Group', edit_group_path(@group) %>
+  </p>
+
+  <% @group.unpurchased_items.each do |item| %>
+    <%= item.name %><br/> <br/>
+  <% end %>
+
+  <br/>
+  <%= render 'items/form', group: @group %>
+
+
+  <%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
+  <br>
+  <br>
+  <%= link_to 'Take me back to my groups, please!', groups_path %>
 
 
 
+<%content_for :right_side_bar do%>
+    <h1>purchases</h1>
 
+    <table>
+      <thead>
+        <tr>
+          <th>Purchase Made By:</th>
+          <th>Cost:</th>
+          <th>Purchase made on:</th>
+        </tr>
+      </thead>
 
-<%= link_to 'Take me back to my groups, please!', groups_path %>
+      <tbody>
+        <% @group.ordered_purchases.each do |purchase| %>
+          <tr>
+            <td><%= "#{purchase.user.first_name} #{purchase.user.last_name}"%></td>
+            <td><%= purchase.cost %></td>
+            <td><%= purchase.formatted_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <% end %>

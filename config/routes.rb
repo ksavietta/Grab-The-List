@@ -5,8 +5,10 @@ GtlSecond::Application.routes.draw do
   resources :lists, :items, :groups
 
   resources :groups do
-    resources :items, only:[:create]
+    resources :items
+    resources :purchases
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

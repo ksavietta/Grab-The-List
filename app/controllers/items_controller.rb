@@ -13,7 +13,6 @@ class ItemsController<ApplicationController
       redirect_to group_path(@group),
         notice: "Your item was created successfully."
     else
-      render 'new'
       flash.now[:notice] = "There was an issue with your item. Please try again."
       render action: "../groups/show"
     end
@@ -50,7 +49,7 @@ class ItemsController<ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :purchased, :list_id)
+    params.require(:item).permit(:name, :purchased, :list_id, :user_id, :group_id)
   end
 
 end

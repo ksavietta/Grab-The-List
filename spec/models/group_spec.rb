@@ -8,4 +8,6 @@ describe Group do
 
   it {should have_many :items}
 
+  it {should have_many(:purchases).dependent(:destroy)}
+
 end

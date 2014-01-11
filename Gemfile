@@ -55,6 +55,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "mailcatcher"
+  gem "rails-erd"
 
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
@@ -62,6 +63,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-livereload', require:false
   gem 'terminal-notifier-guard'
+
 end
 
 
