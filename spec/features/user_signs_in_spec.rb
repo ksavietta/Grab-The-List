@@ -7,7 +7,6 @@ feature 'user signs in', %Q{
 
   scenario ' an existing user specifies a valid email and password' do
     user = FactoryGirl.create(:user)
-    list = FactoryGirl.create(:list)
 
     sign_in_as user
 
