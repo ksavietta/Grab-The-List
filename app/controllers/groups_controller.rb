@@ -9,7 +9,7 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
     @group = Group.new(group_params)
     if @group.save
       current_user.groups << @group
-      redirect_to groups_path
+      redirect_to group_path(@group)
     else
       render 'new'
     end
