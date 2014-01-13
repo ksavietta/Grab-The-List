@@ -1,5 +1,5 @@
 <% content_for :left_side_bar do%>
-<h1><%=@group.name%> Group</h1>
+<h1>Group: <%=@group.name%></h1>
 
 <table>
   <thead>
@@ -38,21 +38,17 @@
 
 
   <%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
-  <br>
-  <br>
-  <%= link_to 'Take me back to my groups, please!', groups_path %>
-
 
 
 <%content_for :right_side_bar do%>
-    <h1>purchases</h1>
+    <h1>Purchases</h1>
 
     <table>
       <thead>
         <tr>
-          <th>Purchase Made By:</th>
+          <th>Made By:</th>
           <th>Cost:</th>
-          <th>Purchase made on:</th>
+          <th>Made on:</th>
         </tr>
       </thead>
 
