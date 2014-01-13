@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
+  def default_group
+    self.groups.first
+  end
+
   has_many :group_users,
     inverse_of: :user
 

@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     if current_user.groups == []
       new_group_path
     else
-      groups_path
+      group_path(current_user.default_group)
     end
   end
 
