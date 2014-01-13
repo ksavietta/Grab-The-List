@@ -80,7 +80,7 @@ feature 'user makes a purchase', %Q{
     click_link "Back to GroupTest"
     expect(page).to have_content("GroupTest")
 
-    click_link "#{Date.today} by #{user.first_name} #{user.last_name}"
+    click_link "View"
     expect(page).to have_content("Eggs")
   end
 
@@ -108,7 +108,7 @@ feature 'user makes a purchase', %Q{
     click_link "Back to GroupTest"
     expect(page).to have_content("GroupTest")
 
-    click_link "#{Date.today} by #{user.first_name} #{user.last_name}"
+    click_link "View"
     expect(page).to have_content("Eggs")
     click_link "Back"
     expect(page).to have_content("Purchases")

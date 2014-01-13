@@ -13,8 +13,8 @@ class Group<ActiveRecord::Base
     inverse_of: :group,
     dependent: :destroy
 
-  def ordered_purchases
-    self.purchases.order('created_at DESC')
+  def ordered_recent_purchases
+    self.purchases.order('created_at DESC').limit(10)
   end
 
   def purchased_items

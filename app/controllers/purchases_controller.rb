@@ -5,13 +5,14 @@ class PurchasesController < ApplicationController
 # GET /purchases
   # GET /purchases.json
   def index
+    @group = Group.find(params[:group_id])
     @purchases = Purchase.all
   end
 
   # GET /purchases/1
   # GET /purchases/1.json
   def show
-      @group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
   end
 
   # GET /purchases/new

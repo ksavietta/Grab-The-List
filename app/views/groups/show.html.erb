@@ -23,9 +23,9 @@
 <% end%>
 
 
+  <h1><strong><%=@group.name%></strong></h1>
+
   <p>
-    <strong>Group Name:</strong>
-    <%= @group.name %>
     <%= link_to 'Edit Group', edit_group_path(@group) %>
   </p>
 
@@ -41,7 +41,7 @@
 
 
 <%content_for :right_side_bar do%>
-    <h1>Purchases</h1>
+    <h1><%= link_to "Purchases", group_purchases_path(@group) %></h1>
 
     <table>
       <thead>
@@ -49,15 +49,18 @@
           <th>Made By:</th>
           <th>Cost:</th>
           <th>Made on:</th>
+          <th>View Purchase</th>
         </tr>
       </thead>
 
       <tbody>
-        <% @group.ordered_purchases.each do |purchase| %>
+        <% @group.ordered_recent_purchases.each do |purchase| %>
           <tr>
             <td><%= "#{purchase.user.first_name} #{purchase.user.last_name}"%></td>
             <td><%= purchase.cost %></td>
             <td><%= purchase.formatted_date %></td>
+            <td><%= link_to "View", group_purchase_path(@group, purchase)%></td>
+
           </tr>
         <% end %>
       </tbody>
