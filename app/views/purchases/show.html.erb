@@ -26,8 +26,7 @@
   <%= @purchase.cost%>
 </p>
 
-
-
+<%= image_tag @purchase.receipt_photo_url.to_s %>
 
 <p>
 <%= link_to 'Edit purchase Info', edit_group_purchase_path(@group, @purchase) %>

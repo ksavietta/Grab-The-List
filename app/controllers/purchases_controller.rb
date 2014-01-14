@@ -42,8 +42,9 @@ class PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1
   # PATCH/PUT /issues/1.json
   def update
+    @group = Group.find(params[:group_id])
     if @purchase.update(purchase_params)
-      redirect_to @purchase, notice: 'purchase was successfully updated!'
+      redirect_to group_purchase_path(@group,@purchase), notice: 'purchase was successfully updated!'
     else
       render action: 'edit'
     end
