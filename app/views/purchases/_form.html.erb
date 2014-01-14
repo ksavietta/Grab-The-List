@@ -13,6 +13,10 @@
 
   <%= f.input :cost %>
   <%= f.association :items, :as => :check_boxes, :collection => @group.unpurchased_items%>
+  <div>
+    <%= f.label :receipt_photo, "Receipt Photo" %>
+    <%= f.file_field :receipt_photo %>
+  </div>
   <%= f.button :submit %>
 
 <% end %>

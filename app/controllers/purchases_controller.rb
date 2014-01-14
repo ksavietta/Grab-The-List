@@ -64,7 +64,7 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white purchase through.
     def purchase_params
-      params.require(:purchase).permit(:cost, :user_id, :group_id, item_ids: []  )
+      params.require(:purchase).permit(:cost, :user_id, :group_id, :receipt_photo, item_ids: []  )
     end
 
     def authorize_user

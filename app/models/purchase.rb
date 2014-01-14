@@ -11,6 +11,8 @@ class Purchase < ActiveRecord::Base
   belongs_to :user, inverse_of: :purchases
   belongs_to :group, inverse_of: :purchases
 
+  mount_uploader :receipt_photo, ReceiptPhotoUploader
+
   def make_purchase(item_ids)
     if save
       item_ids.each do |item_id|

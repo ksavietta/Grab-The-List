@@ -41,6 +41,8 @@ gem "letter_opener", :group => :development
 gem 'simple_form'
 gem 'devise'
 gem 'zurb-foundation'
+gem 'carrierwave'
+gem "fog", "~> 1.19.0"
 
 group :development, :test do
   gem 'pry-rails'
@@ -56,6 +58,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem "mailcatcher"
   gem "rails-erd"
+  gem 'dotenv-rails'
 
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
