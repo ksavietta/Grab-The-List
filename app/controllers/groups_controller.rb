@@ -6,9 +6,8 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
     if @group.save
-      current_user.groups << @group
       redirect_to group_path(@group)
     else
       render 'new'
@@ -43,7 +42,7 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
   def show
     @groups = current_user.groups
     @item = Item.new
-
+    @group_user = GroupUser.new
   end
 
   private

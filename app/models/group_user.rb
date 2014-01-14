@@ -6,4 +6,18 @@ class GroupUser<ActiveRecord::Base
 
   belongs_to :user,
     inverse_of: :group_users
+
+  validates_uniqueness_of :user_id, :scope => :group_id
+
+  def email_address
+    self.user.try(:email_address)
+  end
+
+  def email_address=(email_address)
+    self.user = User.where(email: email_address).first
+  end
+
+  def user_exists?
+    self.user
+  end
 end

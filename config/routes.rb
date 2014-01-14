@@ -7,6 +7,7 @@ GtlSecond::Application.routes.draw do
   resources :groups do
     resources :items
     resources :purchases
+    resources :group_users, only: [:create, :destroy]
   end
 
 

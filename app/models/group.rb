@@ -7,7 +7,8 @@ class Group<ActiveRecord::Base
   has_many :users,
     through: :group_users
 
-  has_many :items
+  has_many :items,
+    inverse_of: :group
 
   has_many :purchases,
     inverse_of: :group,
