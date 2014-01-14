@@ -36,7 +36,7 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
 
   def destroy
     @group.destroy
-    redirect_to groups_path
+    redirect_to group_path(current_user.default_group)
   end
 
   def show

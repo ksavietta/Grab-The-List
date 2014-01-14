@@ -24,7 +24,7 @@
   <p>Add someone to a group:</p>
   <%= simple_form_for [@group, @group_user], controller: :group_user, action: :create do |f|%>
     <%= f.input :email_address %>
-    <%= f.button :submit %>
+    <%= f.button :submit, "Add Member" %>
   <%end%>
 
 <% end%>
