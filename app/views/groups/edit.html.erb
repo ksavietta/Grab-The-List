@@ -1,6 +1,22 @@
-<h1>Editing group</h1>
+<h1>Editing <%=@group.name%></h1>
 
 <%= render 'form' %>
 
+<table>
+  <thead>
+    <tr>
+      <th>Group Members for <%=@group.name%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@group.users.each do |user|%>
+      <tr>
+        <td><%=user.name%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Show', @group %> |
+<%= link_to 'Destroy Group', group_path(@group), method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', groups_path %>

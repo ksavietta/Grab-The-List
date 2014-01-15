@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     self.groups.first
   end
 
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   has_many :group_users,
     inverse_of: :user
 
