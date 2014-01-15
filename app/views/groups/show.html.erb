@@ -24,11 +24,6 @@
   <%= render 'your_groups' %>
 </div>
 
-<p>Add someone to <%=@group.name%></p>
-<%= simple_form_for [@group, @group_user], controller: :group_user, action: :create do |f|%>
-  <%= f.input :email_address %>
-  <%= f.button :submit, "Add Member", class: "tiny" %>
-<%end%>
 
 <div id="purchases">
   <%= render 'group_purchases' %>
