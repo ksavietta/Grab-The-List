@@ -1,97 +1,39 @@
-<% content_for :left_side_bar do%>
-  <h1>Group: <%=@group.name%></h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Group Members for <%=@group.name%></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%@group.users.each do |user|%>
-        <tr>
-          <td><%=user.name%></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Group Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @groups.each do |group| %>
-        <tr>
-          <td><%= link_to group.name, group %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<h1><strong><%=@group.name%></strong></h1>
 
-  <br>
-  <%= link_to 'New group', new_group_path %>
+<p>
 
-  <p>Add someone to a group:</p>
-  <%= simple_form_for [@group, @group_user], controller: :group_user, action: :create do |f|%>
-    <%= f.input :email_address %>
-    <%= f.button :submit, "Add Member" %>
-  <%end%>
+</p>
 
-<% end%>
+<% @group.unpurchased_items.each do |item| %>
+  <%= item.name %><br/> <br/>
+<% end %>
+
+<br/>
+<%= render 'items/form', group: @group %>
 
 
-  <h1><strong><%=@group.name%></strong></h1>
-
-  <p>
-    <%= link_to 'Edit Group', edit_group_path(@group) %>
-  </p>
-
-  <% @group.unpurchased_items.each do |item| %>
-    <%= item.name %><br/> <br/>
-  <% end %>
-
-  <br/>
-  <%= render 'items/form', group: @group %>
+<%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
+<br>
 
 
-  <%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
-  <br>
-
-<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
-<div id="myModal" class="reveal-modal" data-reveal>
-  <h2>Awesome. I have it.</h2>
-  <p class="lead">Your couch.  It is mine.</p>
-  <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
 
 <%content_for :right_side_bar do%>
-    <h1><%= link_to "Purchases", group_purchases_path(@group) %></h1>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Made By:</th>
-          <th>Cost:</th>
-          <th>Made on:</th>
-          <th>View Purchase</th>
-        </tr>
-      </thead>
+<div id="your-groups">
+  <%= render 'your_groups' %>
+</div>
 
-      <tbody>
-        <% @group.ordered_recent_purchases.each do |purchase| %>
-          <tr>
-            <td><%= "#{purchase.user.first_name} #{purchase.user.last_name}"%></td>
-            <td><%= purchase.cost %></td>
-            <td><%= purchase.formatted_date %></td>
-            <td><%= link_to "View", group_purchase_path(@group, purchase)%></td>
+<p>Add someone to <%=@group.name%></p>
+<%= simple_form_for [@group, @group_user], controller: :group_user, action: :create do |f|%>
+  <%= f.input :email_address %>
+  <%= f.button :submit, "Add Member", class: "tiny" %>
+<%end%>
 
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<div id="purchases">
+  <%= render 'group_purchases' %>
+</div>
 
-    <br>
-    <% end %>
+<br>
+
+<% end %>
