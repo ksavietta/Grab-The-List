@@ -5,8 +5,6 @@ class Purchase < ActiveRecord::Base
   validates :cost,
     numericality: {greater_than_or_equal_to: 0}
 
-
-
   has_many :items,
     inverse_of: :purchase,
     dependent: :destroy

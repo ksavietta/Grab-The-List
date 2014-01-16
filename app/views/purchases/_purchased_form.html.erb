@@ -1,0 +1,24 @@
+<%= simple_form_for [@group, @purchase] do |f| %>
+  <% if @purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+      <ul>
+      <% @purchase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :cost %>
+
+  <% @purchase.items.each do |item|%>
+  <%= item.name %><br>
+  <% end %><br>
+
+  <%= image_tag @purchase.receipt_photo_url.to_s %>
+
+  <%= f.button :submit %>
+
+<% end %>

@@ -1,34 +1,28 @@
+<div class="main-wrapper">
+  <h1><strong><%=@group.name%></strong></h1>
 
-<h1><strong><%=@group.name%></strong></h1>
+  <% @group.unpurchased_items.each do |item| %>
+    <%= item.name %><br/> <br/>
+  <% end %>
 
-<p>
-
-</p>
-
-<% @group.unpurchased_items.each do |item| %>
-  <%= item.name %><br/> <br/>
-<% end %>
-
-<br/>
-<%= render 'items/form', group: @group %>
+  <br/>
+  <%= render 'items/form', group: @group %>
 
 
-<%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
-<br>
-
+  <%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
+  <br>
+</div>
 
 
 <%content_for :right_side_bar do%>
+  <div id="your-groups">
+    <%= render 'your_groups' %>
+  </div>
 
-<div id="your-groups">
-  <%= render 'your_groups' %>
-</div>
+  <div id="purchases">
+    <%= render 'group_purchases' %>
+  </div>
 
-
-<div id="purchases">
-  <%= render 'group_purchases' %>
-</div>
-
-<br>
+  <br>
 
 <% end %>

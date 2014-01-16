@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Grab The List</title>
-  <%= stylesheet_link_tag "application" %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <nav class="top-bar" data-topbar>
+    <title>Grab The List</title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
         <h1><%= link_to "Grab The List", root_path%></h1>
@@ -28,20 +33,17 @@
     </section>
   </nav>
 
-    <% flash.each do |name, msg| -%>
+  <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
 
     <div class="row">
       <div class="medium-9 columns" id="main-content"><%= yield %></div>
-      <div class="medium-3 columns" id="right-side-bar">
+      <div class="medium-3 columns" id="right-content">
         <%= yield :right_side_bar%>
       </div>
     </div>
 
-  <%= javascript_include_tag "application"%>
-</body>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
-
-
-
