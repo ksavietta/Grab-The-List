@@ -34,8 +34,10 @@
   </nav>
 
   <% flash.each do |name, msg| -%>
+    <div data-alert class="alert-box <%name == :notice ? "success" : "alert" %>">
       <%= content_tag :div, msg, class: name %>
-    <% end -%>
+    </div>
+  <% end -%>
 
     <div class="row">
       <div class="medium-9 columns" id="main-content"><%= yield %></div>

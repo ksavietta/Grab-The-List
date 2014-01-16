@@ -1,16 +1,19 @@
 <div class="main-wrapper">
-  <h1><strong><%=@group.name%></strong></h1>
+  <div class="medium-11 columns">
+    <h1><strong><%=@group.name%></strong></h1>
 
-  <% @group.unpurchased_items.each do |item| %>
-    <%= item.name %><br/> <br/>
-  <% end %>
+    <% @group.unpurchased_items.each do |item| %>
+      <%= item.name %><br/> <br/>
+    <% end %>
 
-  <br/>
-  <%= render 'items/form', group: @group %>
+    <br/>
+    <%= render 'items/form', group: @group %>
+  </div>
 
+  <div class="medium-1 columns" id="make-a-purchase">
+    <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button" %>
+  </div>
 
-  <%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
-  <br>
 </div>
 
 

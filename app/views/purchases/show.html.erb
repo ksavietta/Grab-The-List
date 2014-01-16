@@ -33,3 +33,14 @@
 </p>
 
 <%= link_to "Back to #{@group.name}", group_path(@group) %>
+
+
+<%content_for :right_side_bar do%>
+
+  <div id="purchases">
+    <%= render 'groups/group_purchases' %>
+  </div>
+
+  <br>
+
+<% end %>

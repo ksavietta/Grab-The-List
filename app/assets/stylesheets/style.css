@@ -2,9 +2,9 @@
   font-family: 'Lato', sans-serif;
  }
 
- button{
+ .button {
     margin: 0 auto;
-    background-color: #ee4554;
+    color: #FFF;
  }
 
  #main-content{
@@ -14,4 +14,8 @@
 
  #right-content{
 
+ }
+
+ #make-a-purchase {
+  padding-top: 10%;
  }
