@@ -1,6 +1,6 @@
 class GroupsController<ApplicationController
 before_action :set_group, only: [:edit, :update, :destroy, :show]
-before_action :authorize_user
+before_action :authorize_user, except: [:new, :create]
 
   def new
     @group = Group.new
