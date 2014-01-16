@@ -1,6 +1,15 @@
-<div class="main-wrapper">
-  <div class="medium-11 columns">
+
+<%content_for :main_title do %>
+  <div class="medium-8 columns">
     <h1><strong><%=@group.name%></strong></h1>
+  </div>
+
+  <div class="medium-4 columns" id="make-a-purchase">
+    <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button" %>
+  </div>
+<%end%>
+
+<div class="main-wrapper">
 
     <% @group.unpurchased_items.each do |item| %>
       <%= item.name %><br/> <br/>
@@ -8,18 +17,13 @@
 
     <br/>
     <%= render 'items/form', group: @group %>
-  </div>
-
-  <div class="medium-1 columns" id="make-a-purchase">
-    <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button" %>
-  </div>
 
 </div>
 
 
 <%content_for :right_side_bar do%>
   <div id="your-groups">
-    <%= render 'your_groups' %>
+    <%= render 'members' %>
   </div>
 
   <div id="purchases">

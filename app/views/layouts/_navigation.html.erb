@@ -1,0 +1,29 @@
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Grab The List", root_path%></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        <%- if user_signed_in? -%>
+          <li class="has-dropdown">
+            <a href="#">Groups</a>
+            <ul class="dropdown">
+              <% current_user.groups.each do |group|%>
+              <li><%= link_to group.name, group %></li>
+              <% end %>
+              <li><%= link_to 'New Group', new_group_path%></li>
+            </ul>
+          </li>
+          <li><%= link_to "#{current_user.email}", user_path(current_user)%> </li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+        <%- else -%>
+          <li><%= link_to 'Sign In', new_user_session_path%></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path%></li>
+        <%- end -%>
+      </ul>
+    </section>
+  </nav>

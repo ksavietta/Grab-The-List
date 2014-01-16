@@ -13,25 +13,7 @@
   </head>
 
   <body>
-    <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-      <li class="name">
-        <h1><%= link_to "Grab The List", root_path%></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if user_signed_in? -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign In', new_user_session_path%></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path%></li>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
+    <%= render 'layouts/navigation' %>
 
   <% flash.each do |name, msg| -%>
     <div data-alert class="alert-box <%name == :notice ? "success" : "alert" %>">
@@ -39,6 +21,11 @@
     </div>
   <% end -%>
 
+    <div class="row">
+      <div class="medium-12 columns centered">
+        <%= yield :main_title%>
+      </div>
+    </div>
     <div class="row">
       <div class="medium-9 columns" id="main-content"><%= yield %></div>
       <div class="medium-3 columns" id="right-content">

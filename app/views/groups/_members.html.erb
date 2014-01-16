@@ -1,0 +1,26 @@
+<h1>Members</h1>
+<table>
+  <tbody>
+    <% @group.users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td></td>
+        <td>
+          <a href="#" data-reveal-id="myModal">Add Member</a>
+          <div id="myModal" class="reveal-modal" data-reveal>
+            <p>Add someone to <%=@group.name%></p>
+            <%= simple_form_for [@group, @group_user], controller: :group_user, action: :create do |f|%>
+              <%= f.input :email_address %>
+              <%= f.button :submit, "Add Member", class: "tiny" %>
+            <%end%>
+            <a class="close-reveal-modal">&#215;</a>
+          </div>
+        </td>
+      </tr>
+
+  </tbody>
+</table>

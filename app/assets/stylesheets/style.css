@@ -17,5 +17,10 @@
  }
 
  #make-a-purchase {
-  padding-top: 10%;
+  padding-top: 2%;
  }
+
+
+@media screen and (max-width: 400px) {
+  #main-content {display:none;}
+}
