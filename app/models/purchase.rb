@@ -1,8 +1,11 @@
 class Purchase < ActiveRecord::Base
   validates_presence_of :cost
+  validates_presence_of :items
 
   validates :cost,
     numericality: {greater_than_or_equal_to: 0}
+
+
 
   has_many :items,
     inverse_of: :purchase,
@@ -28,7 +31,7 @@ class Purchase < ActiveRecord::Base
   end
 
   def formatted_date
-    self.created_at.strftime("%Y-%m-%d")
+    self.created_at.strftime("%m-%d-%Y")
   end
 
 end
