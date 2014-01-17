@@ -12,10 +12,10 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.find_membership(@group).spent_for_group %></td>
-        <% if user.find_membership(@group).owes_owed < 0 %>
-          <td class=owed>Owed:<%= (user.find_membership(@group).owes_owed*-1).round(2) %></td>
+        <% if user.find_membership(@group).owed%>
+          <td class=owed>Owed:<%= user.find_membership(@group).owed %></td>
         <% else %>
-          <td class=owes>Owes:<%= user.find_membership(@group).owes_owed.round(2) %></td>
+          <td class=owes>Owes:<%= user.find_membership(@group).owes%></td>
         <% end%>
       </tr>
     <% end %>

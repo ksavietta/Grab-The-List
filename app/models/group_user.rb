@@ -35,6 +35,13 @@ class GroupUser<ActiveRecord::Base
     owes_owed = individual_share - spent_for_group
   end
 
+  def owes
+    owes_owed.round(2) if owes_owed > 0
+  end
+
+  def owed
+    (owes_owed*-1).round(2) if owes_owed < 0
+  end
 
 
 end

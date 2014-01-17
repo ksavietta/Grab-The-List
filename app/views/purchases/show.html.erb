@@ -33,6 +33,15 @@
   <%= @purchase.cost%>
 </p>
 
+<p>
+  <strong>Settled:</strong>
+  <% if @purchase.settled_at%>
+    <%= @purchase.settled_at%>
+  <% else %>
+    Not Yet!
+  <%end%>
+</p>
+
 <%= image_tag @purchase.receipt_photo_url.to_s %>
 
 <p>

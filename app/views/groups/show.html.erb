@@ -34,8 +34,9 @@
     <%= render 'members' %>
   </div>
 
-
-
+  <% if current_user.find_membership(@group).owes%>
+    <%= button_to "Settle Your Debt", "#" %>
+  <%end%>
   <br>
 
 <% end %>
