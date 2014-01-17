@@ -21,4 +21,15 @@ class GroupUser<ActiveRecord::Base
     self.user
   end
 
+  def spent_for_group
+    "MONEY THIS PERSON OWES"
+    total = 0.00
+    self.user.purchases.where(group_id: self.group.id).where(settled_at: nil).each do |unsettled_purchase|
+      total += unsettled_purchase.cost
+    end
+    total
+  end
+
+
+
 end

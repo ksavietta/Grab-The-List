@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     total
   end
 
+  def find_membership(group)
+    self.group_users.where(group_id: group.id).first
+  end
+
   has_many :group_users,
     inverse_of: :user
 

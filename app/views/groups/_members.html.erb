@@ -5,6 +5,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= user.find_membership(@group).spent_for_group %></td>
       </tr>
     <% end %>
       <tr>
@@ -20,6 +21,7 @@
             <a class="close-reveal-modal">&#215;</a>
           </div>
         </td>
+        <td></td>
       </tr>
 
   </tbody>
