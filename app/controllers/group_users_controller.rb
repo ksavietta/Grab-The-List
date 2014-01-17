@@ -14,11 +14,16 @@ class GroupUsersController < ApplicationController
     end
   end
 
+  def destroy
+    @group_user = GroupUser.find(params[:id])
+    @group_user.destroy
+    redirect_to root_path
+  end
+
   private
 
   def group_user_params
     params.require(:group_user).permit(:email_address)
   end
-
 
 end

@@ -4,9 +4,13 @@
     <h1><strong><%=@group.name%></strong></h1>
   </div>
 
+  <%= link_to "Edit Group", edit_group_path(@group)%>
+
   <div class="medium-8 columns" id="make-a-purchase">
     <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button" %>
   </div>
+
+
 <%end%>
 
 <div class="main-wrapper">
