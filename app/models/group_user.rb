@@ -20,4 +20,5 @@ class GroupUser<ActiveRecord::Base
   def user_exists?
     self.user
   end
+
 end

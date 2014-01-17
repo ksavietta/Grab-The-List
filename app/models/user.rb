@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
+  def total_spent_in_current_month
+    total = 0
+    self.purchases.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day+1.month).each do |purchase|
+      total += purchase.cost
+    end
+    total
+  end
+
   has_many :group_users,
     inverse_of: :user
 

@@ -9,7 +9,7 @@ class GroupUsersController < ApplicationController
       flash[:notice] = "This person is already in the group."
       redirect_to group_path(group)
     else
-      flash[:notice] = "This person is not registered with Grab The List"
+      flash[:notice] = "Uh-Oh! You found the Princess. Wronngggg, she's in another house. Looks like this person is not registered."
       redirect_to group_path(group)
     end
   end

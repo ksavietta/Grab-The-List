@@ -10,7 +10,7 @@
       <ul class="right">
         <%- if user_signed_in? -%>
           <li class="has-dropdown">
-            <a href="#">Groups</a>
+            <a href="#">My Groups</a>
             <ul class="dropdown">
               <% current_user.groups.each do |group|%>
               <li><%= link_to group.name, group %></li>
@@ -26,4 +26,7 @@
         <%- end -%>
       </ul>
     </section>
+
   </nav>
+
+
