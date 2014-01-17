@@ -22,6 +22,8 @@ class Purchase < ActiveRecord::Base
           item.purchase_id = self.id
         end
       end
+      # add cost spent to group total
+
       true
     else
       false
