@@ -1,5 +1,8 @@
-<h1>Your Purchase on <%=@purchase.created_at%></h1>
-
+<% if @purchase.user == current_user %>
+  <h1>Your Purchase on <%=@purchase.formatted_date%></h1>
+<% else %>
+  <h1><%= "#{@purchase.user.name}'s purchase on #{@purchase.formatted_date}"%></h1>
+<%end%>
 <p>
   <strong>Purchased:</strong>
   <%= @purchase.formatted_date %>
@@ -14,7 +17,11 @@
   <strong>Items:</strong>
   <% @purchase.items.each do |item| %>
       <% if @purchase.items.count > 1 %>
-        <%= "#{item.name}, " %>
+        <% if item == @purchase.items.last %>
+          <%= "#{item.name}" %>
+        <% else%>
+          <%= "#{item.name}, " %>
+        <%end%>
       <% else %>
         <%= item.name %>
       <% end %>

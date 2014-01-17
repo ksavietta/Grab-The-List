@@ -26,5 +26,12 @@ class Group<ActiveRecord::Base
     self.items.where('purchase_id is NULL')
   end
 
+  def total_spent_unsettled
+    total =0.00
+    self.purchases.where(settled_at: nil).each do |purchase|
+      total += purchase.cost
+    end
+    total
+  end
 
 end

@@ -1,11 +1,22 @@
 <h1>Members</h1>
 <table>
   <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Total Spent</th>
+        <th>Owed/Owes</th>
+      </tr>
     <% @group.users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.find_membership(@group).spent_for_group %></td>
+        <% if user.find_membership(@group).owes_owed < 0 %>
+          <td class=owed>Owed:<%= (user.find_membership(@group).owes_owed*-1).round(2) %></td>
+        <% else %>
+          <td class=owes>Owes:<%= user.find_membership(@group).owes_owed.round(2) %></td>
+        <% end%>
       </tr>
     <% end %>
       <tr>
@@ -21,6 +32,7 @@
             <a class="close-reveal-modal">&#215;</a>
           </div>
         </td>
+        <td></td>
         <td></td>
       </tr>
 

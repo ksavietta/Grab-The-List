@@ -22,12 +22,17 @@ class GroupUser<ActiveRecord::Base
   end
 
   def spent_for_group
-    "MONEY THIS PERSON OWES"
     total = 0.00
     self.user.purchases.where(group_id: self.group.id).where(settled_at: nil).each do |unsettled_purchase|
       total += unsettled_purchase.cost
     end
     total
+  end
+
+  def owes_owed
+    group_total = self.group.total_spent_unsettled
+    individual_share = group_total/self.group.users.count
+    owes_owed = individual_share - spent_for_group
   end
 
 

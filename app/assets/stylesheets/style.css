@@ -24,3 +24,11 @@
 @media screen and (max-width: 400px) {
   #main-content {display:none;}
 }
+
+.owes {
+  color:red;
+}
+
+.owed{
+  color:green;
+}
