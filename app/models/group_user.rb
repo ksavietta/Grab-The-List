@@ -7,6 +7,9 @@ class GroupUser<ActiveRecord::Base
   belongs_to :user,
     inverse_of: :group_users
 
+  has_many :purchases,
+    inverse_of: :group_user
+
   validates_uniqueness_of :user_id, :scope => :group_id
 
   def email_address

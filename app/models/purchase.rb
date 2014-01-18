@@ -9,6 +9,10 @@ class Purchase < ActiveRecord::Base
     inverse_of: :purchase,
     dependent: :destroy
 
+  belongs_to :group_user,
+    inverse_of: :purchases,
+    dependent: :destroy
+
   belongs_to :user, inverse_of: :purchases
   belongs_to :group, inverse_of: :purchases
 

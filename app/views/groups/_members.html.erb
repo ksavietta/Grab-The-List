@@ -14,8 +14,10 @@
         <td><%= user.find_membership(@group).spent_for_group %></td>
         <% if user.find_membership(@group).owed%>
           <td class=owed>Owed:<%= user.find_membership(@group).owed %></td>
-        <% else %>
+        <% elsif user.find_membership(@group).owes%>
           <td class=owes>Owes:<%= user.find_membership(@group).owes%></td>
+        <% else %>
+          <td></td>
         <% end%>
       </tr>
     <% end %>
