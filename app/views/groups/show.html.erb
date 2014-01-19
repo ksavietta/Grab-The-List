@@ -1,8 +1,6 @@
 
 <%content_for :left_side_bar do %>
 
-  <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button" %>
-
   <div id="purchases">
     <%= render 'group_purchases' %>
   </div>
@@ -12,9 +10,10 @@
 <%content_for :main_title do %>
   <div class="medium-12 columns group-name">
     <h1><strong><%=@group.name%></strong></h1>
+    <p><%= link_to "Edit Group", edit_group_path(@group)%></p>
   </div>
 
-  <%= link_to "Edit Group", edit_group_path(@group)%>
+
 
 <%end%>
 
@@ -30,6 +29,8 @@
   <div class="items-form">
     <%= render 'items/form', group: @group %>
   </div>
+
+    <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button purchase-button" %>
 
 </div>
 

@@ -30,7 +30,7 @@
 }
 
 @media screen and (max-width: 400px) {
-  #main-content {display:none;}
+  #left-content {display:none;}
 }
 
 .owes {
@@ -39,4 +39,24 @@
 
 .owed{
   color:green;
+}
+
+.purchase-row:hover {
+  background-color: #FFE7BA;
+}
+
+.items-form .button {
+  display: block;
+  margin: 10px auto 0px auto;
+}
+
+.purchase-button {
+  display: block;
+  margin: 30px; 0 auto;
+}
+
+.group-name h1, .group-name p{
+  display: inline;
+  vertical-align: top;
+  margin-bottom: 2%;
 }

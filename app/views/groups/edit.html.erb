@@ -3,7 +3,7 @@
 <%= render 'form' %>
 
 <ul>
-  <%@group.items.each do |item| %>
+  <%@group.unpurchased_items.each do |item| %>
   <li><%="#{item.name} "%> <%=link_to "Remove Item", group_item_path(@group, item), method: :delete%></li>
   <%end%>
 </ul>
