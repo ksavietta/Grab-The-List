@@ -20,9 +20,17 @@
   text-align: center;
 }
 
+.items-list li:first-child {
+  margin-top: 25px;
+}
+
 .item {
   margin: 10px;
-  font-size: 2em;
+  font-size: 1.5em;
+}
+
+.purchase_items .checkbox {
+  text-align: center;
 }
 
 .group-name {
@@ -55,10 +63,14 @@
   margin: 30px;
 }
 
-.group-name h1, .group-name p{
+.group-name h1, .group-name p {
   display: inline;
   vertical-align: top;
   margin-bottom: 2%;
+}
+
+.members-header h1, .members-header a {
+  display: inline;
 }
 
 .fi-x-circle {
