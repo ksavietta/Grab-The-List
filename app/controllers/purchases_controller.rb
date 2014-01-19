@@ -53,8 +53,9 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
+    @group = Group.find(params[:group_id])
     @purchase.destroy
-    redirect_to purchases_path
+    redirect_to group_purchases_path(@group)
   end
 
   private
