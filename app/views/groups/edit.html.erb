@@ -4,7 +4,7 @@
 
 <ul>
   <%@group.unpurchased_items.each do |item| %>
-  <li><%="#{item.name} "%> <%=link_to "Remove Item", group_item_path(@group, item), method: :delete%></li>
+  <li><%="#{item.name} "%> <%=link_to "<i class='fi-x-circle large'></i>".html_safe, group_item_path(@group, item), method: :delete%></li>
   <%end%>
 </ul>
 

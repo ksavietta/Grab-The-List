@@ -22,7 +22,7 @@
 
   <ul class= "items-list">
     <% @group.unpurchased_items.each do |item| %>
-      <li><i class="fi-target large"></i><span class="item"><%= item.name %></span></li>
+      <li></i><span class="item"><%= item.name %></span><%=link_to "<i class='fi-x-circle large'></i>".html_safe, group_item_path(@group, item), method: :delete%></li>
     <% end %>
   </ul>
 
