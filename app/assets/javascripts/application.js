@@ -19,4 +19,6 @@ $(function() {
   $(document).foundation();
 });
 
-$(function(){ $(document).foundation(); });
+$("tr[data-link]").click(function() {
+  window.location = this.dataset.link;
+});
