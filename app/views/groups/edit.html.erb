@@ -2,6 +2,13 @@
 
 <%= render 'form' %>
 
+<ul>
+  <%@group.items.each do |item| %>
+  <li><%="#{item.name} "%> <%=link_to "Remove Item", group_item_path(@group, item), method: :delete%></li>
+  <%end%>
+</ul>
+
+
 <%= link_to 'Destroy Group', group_path(@group), method: :delete, data: { confirm: 'This group will no longer belong to other users. Are you sure you want to delete this group?' } %>
 
 <br><br>

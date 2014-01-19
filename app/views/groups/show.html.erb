@@ -1,32 +1,37 @@
 
+<%content_for :left_side_bar do %>
+
+  <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button" %>
+
+  <div id="purchases">
+    <%= render 'group_purchases' %>
+  </div>
+
+<% end %>
+
 <%content_for :main_title do %>
-  <div class="medium-4 columns">
+  <div class="medium-12 columns group-name">
     <h1><strong><%=@group.name%></strong></h1>
   </div>
 
   <%= link_to "Edit Group", edit_group_path(@group)%>
 
-  <div class="medium-8 columns" id="make-a-purchase">
-    <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button" %>
-  </div>
-
-
 <%end%>
+
 
 <div class="main-wrapper">
 
+  <ul class= "items-list">
     <% @group.unpurchased_items.each do |item| %>
-      <%= item.name %><br/> <br/>
+      <li><i class="fi-target large"></i><span class="item"><%= item.name %></span></li>
     <% end %>
+  </ul>
 
-    <br/>
+  <div class="items-form">
     <%= render 'items/form', group: @group %>
+  </div>
 
 </div>
-
-  <div id="purchases">
-    <%= render 'group_purchases' %>
-  </div>
 
 
 <%content_for :right_side_bar do%>

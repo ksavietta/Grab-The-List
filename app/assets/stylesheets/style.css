@@ -8,18 +8,26 @@
  }
 
  #main-content{
-  width: 50%;
-  margin: 0 auto;
  }
 
- #right-content{
-
- }
 
  #make-a-purchase {
   padding-top: 2%;
  }
 
+.items-list li {
+  list-style: none;
+  text-align: center;
+}
+
+.item {
+  margin: 10px;
+  font-size: 2em;
+}
+
+.group-name {
+  text-align: center;
+}
 
 @media screen and (max-width: 400px) {
   #main-content {display:none;}

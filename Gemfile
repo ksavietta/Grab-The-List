@@ -38,6 +38,7 @@ gem "letter_opener", :group => :development
 gem 'simple_form'
 gem 'devise'
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
 gem 'carrierwave'
 gem "fog", "~> 1.19.0"
 
@@ -63,7 +64,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-livereload', require:false
   gem 'terminal-notifier-guard'
-
 end
 
 

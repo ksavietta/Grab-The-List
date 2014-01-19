@@ -2,7 +2,7 @@ GtlSecond::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   root :to => "home#index"
-  resources :lists, :items, :groups
+  resources :groups
 
   resources :groups do
     resources :items
