@@ -10,15 +10,15 @@
 <%content_for :main_title do %>
   <div class="medium-12 columns group-name">
     <h1><strong><%=@group.name%></strong></h1>
-    <p><%= link_to "Edit Group", edit_group_path(@group)%></p>
   </div>
-
-
-
 <%end%>
 
 
 <div class="main-wrapper">
+
+  <div class="items-form">
+    <%= render 'items/form', group: @group %>
+  </div>
 
   <ul class= "items-list">
     <% @group.unpurchased_items.each do |item| %>
@@ -26,9 +26,6 @@
     <% end %>
   </ul>
 
-  <div class="items-form">
-    <%= render 'items/form', group: @group %>
-  </div>
 
     <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button purchase-button" %>
 
@@ -41,5 +38,7 @@
   </div>
 
   <br>
+
+
 
 <% end %>

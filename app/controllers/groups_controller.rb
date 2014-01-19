@@ -16,12 +16,12 @@ before_action :authorize_user, except: [:new, :create]
   end
 
   def edit
-
+    @group_user = GroupUser.new
   end
 
   def update
     if @group.update(group_params)
-      redirect_to @group
+      redirect_to edit_group_path(@group)
     else
       render 'edit'
     end

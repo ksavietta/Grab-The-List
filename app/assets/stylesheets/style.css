@@ -63,6 +63,10 @@
   margin: 30px;
 }
 
+.group-name {
+  margin-bottom: 2%;
+}
+
 .group-name h1, .group-name p {
   display: inline;
   vertical-align: top;
@@ -75,4 +79,22 @@
 
 .fi-x-circle {
   margin-left: 10px;
+}
+
+.add-item-form input {
+  width: 75%;
+}
+
+.add-item-button {
+  margin-left: 6%;
+}
+
+.add-item-form input, .add-item-form button {
+  display: inline;
+  vertical-align: top;
+  margin-bottom: 2%;
+}
+
+.rename-group-button {
+  margin-left: .5%;
 }
