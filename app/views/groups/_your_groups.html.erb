@@ -1,14 +1,16 @@
 <h1>Groups</h1>
 <table>
   <tbody>
-      <tr>
-        <th>Group</th>
-        <th>Owed/Owes</th>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-
+    <% current_user.groups.each do |group| %>
+      <%if group.name == @group.name%>
+        <tr class="group-row chosen-group" data-link="<%= group_path(group)%>">
+          <td><%=group.name%></td>
+        </tr>
+      <% else %>
+        <tr class="group-row" data-link="<%= group_path(group)%>">
+          <td><%=group.name%></td>
+        </tr>
+      <% end %>
+    <% end%>
   </tbody>
 </table>

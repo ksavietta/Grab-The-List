@@ -10,6 +10,13 @@
  #main-content{
  }
 
+ #left-content {
+
+ }
+
+ #right-content {
+
+ }
 
  #make-a-purchase {
   padding-top: 2%;
@@ -50,6 +57,10 @@
 }
 
 .purchase-row:hover {
+  background-color: #FFE7BA;
+}
+
+.group-row:hover {
   background-color: #FFE7BA;
 }
 
@@ -97,4 +108,8 @@
 
 .rename-group-button {
   margin-left: .5%;
+}
+
+.chosen-group {
+  border: solid 2px;
 }

@@ -19,6 +19,8 @@ $(function() {
   $(document).foundation();
 });
 
-$("tr[data-link]").click(function() {
+$("tr[data-link]").click(function(e) {
   window.location = this.dataset.link;
 });
+
+
