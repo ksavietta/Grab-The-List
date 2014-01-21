@@ -22,16 +22,12 @@
   <% end -%>
 
     <div class="row">
-      <div class="medium-12 columns centered">
+      <div class="small-12 columns small-centered">
         <%= yield :main_title%>
       </div>
     </div>
     <div class="row">
-      <div class="medium-3 columns" id="left-content"><%= yield :left_side_bar %></div>
-      <div class="medium-6 columns medium-centered" id="main-content"><%= yield %></div>
-      <div class="medium-3 columns" id="right-content">
-        <%= yield :right_side_bar%>
-      </div>
+      <%= yield %>
     </div>
 
     <%= javascript_include_tag "application" %>

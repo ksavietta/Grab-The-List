@@ -1,11 +1,10 @@
 
-<%content_for :left_side_bar do %>
 
+<div class="small-12 medium-3 large-3 columns" id="left-content">
   <div id="purchases">
     <%= render 'group_purchases' %>
   </div>
-
-<% end %>
+</div>
 
 <%content_for :main_title do %>
   <div class="medium-12 columns group-name">
@@ -13,10 +12,10 @@
   </div>
 <%end%>
 
+<div class="small-12 medium-6 large-6 columns" id="main-content">
 
-<div class="main-wrapper">
-
-  <div class="items-form">
+  <div class="ite
+ms-form">
     <%= render 'items/form', group: @group %>
   </div>
 
@@ -32,7 +31,7 @@
 </div>
 
 
-<%content_for :right_side_bar do%>
+<div class="small-12 medium-3 large-3 columns" id="right-content">
 
   <div id="your-groups">
     <%= render 'your_groups' %>
@@ -44,6 +43,4 @@
 
   <br>
 
-
-
-<% end %>
+</div>
