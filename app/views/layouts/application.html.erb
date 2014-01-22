@@ -26,16 +26,16 @@
         <%= yield :main_title%>
       </div>
     </div>
-    <div class="row">
+
       <%= yield %>
-    </div>
 
     <%= javascript_include_tag "application" %>
 
     <script type="text/javascript">
       $(document).ready(function() {
-         $(".cover").backstretch("<%=image_path('cover.jpg')%>")
-      });
+        // $(".cover").backstretch("<%=image_path('cover.jpg')%>")
+     $.backstretch("<%=image_path('cover2.JPG')%>")
+        });
     </script>
   </body>
 </html>

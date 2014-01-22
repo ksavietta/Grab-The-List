@@ -1,7 +1,11 @@
-<h1><%= link_to "#{@group.name}'s Purchases", group_purchases_path(@group) %></h1>
 <div class="purchases">
-  <table class="responsive">
+  <table>
     <thead>
+      <tr>
+        <th colspan="3">
+          <h4><%= link_to "#{@group.name}'s Purchases", group_purchases_path(@group) %></h4>
+        </th>
+      </tr>
       <tr>
         <th>Made By:</th>
         <th>Cost:</th>

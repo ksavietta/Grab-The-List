@@ -13,7 +13,7 @@
 
   <%= f.input :cost %>
 
-  <%= f.association :items, as: :check_boxes, collection: @group.unpurchased_items%>
+  <%= f.association :items, as: :check_boxes, item_wrapper_class: 'item-check-boxes', collection: @group.unpurchased_items%>
   <div>
     <%= f.label :receipt_photo, "Receipt Photo" %>
     <%= f.file_field :receipt_photo %>

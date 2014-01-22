@@ -1,6 +1,13 @@
-<h1>Groups</h1>
+
 <table class="groups-table">
   <tbody>
+    <thead>
+      <tr>
+        <th>
+          <h4>Groups</h4>
+        </th>
+      </tr>
+    </thead>
     <% current_user.groups.each do |group| %>
       <%if group.name == @group.name%>
         <tr class="group-row chosen-group" data-link="<%= group_path(group)%>">
@@ -12,8 +19,11 @@
         </tr>
       <% end %>
     <% end%>
+    <tr>
+      <td><%= link_to 'New Group', new_group_path, class: "tiny button"%></td>
+    </tr>
   </tbody>
 </table>
 
-<%= link_to 'New Group', new_group_path, class: "tiny button"%>
+
 

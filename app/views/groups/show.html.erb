@@ -1,46 +1,50 @@
+<div class="row">
+  <div class="small-12 small-pull-12 medium-3 large-3 columns" id="left-content">
+
+    <div id="your-groups" class="hide-mobile">
+      <%= render 'your_groups' %>
+    </div>
+
+    <div id="members">
+      <%= render 'members' %>
+    </div>
+
+    <br>
+
+  </div>
 
 
-<div class="small-12 medium-3 large-3 columns" id="left-content">
-  <div id="purchases">
-    <%= render 'group_purchases' %>
+
+
+  <%content_for :main_title do %>
+    <div class="medium-12 columns group-name">
+      <h1><strong><%=@group.name%></strong></h1>
+    </div>
+  <%end%>
+
+  <div class="small-12 small-push-12 medium-6 large-6 columns" id="main-content">
+
+    <div class="ite
+  ms-form">
+      <%= render 'items/form', group: @group %>
+    </div>
+
+    <ul class= "items-list">
+      <% @group.unpurchased_items.each do |item| %>
+        <li></i><span class="item"><%= item.name %></span><%=link_to "<i class='fi-x-circle large'></i>".html_safe, group_item_path(@group, item), method: :delete%></li>
+      <% end %>
+    </ul>
+
+
+      <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button purchase-button" %>
+
+  </div>
+
+
+  <div class="small-12 medium-3 large-3 columns" id="right-content">
+    <div id="purchases">
+      <%= render 'group_purchases' %>
+    </div>
   </div>
 </div>
 
-<%content_for :main_title do %>
-  <div class="medium-12 columns group-name">
-    <h1><strong><%=@group.name%></strong></h1>
-  </div>
-<%end%>
-
-<div class="small-12 medium-6 large-6 columns" id="main-content">
-
-  <div class="ite
-ms-form">
-    <%= render 'items/form', group: @group %>
-  </div>
-
-  <ul class= "items-list">
-    <% @group.unpurchased_items.each do |item| %>
-      <li></i><span class="item"><%= item.name %></span><%=link_to "<i class='fi-x-circle large'></i>".html_safe, group_item_path(@group, item), method: :delete%></li>
-    <% end %>
-  </ul>
-
-
-    <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button purchase-button" %>
-
-</div>
-
-
-<div class="small-12 medium-3 large-3 columns" id="right-content">
-
-  <div id="your-groups" class="hide-mobile">
-    <%= render 'your_groups' %>
-  </div>
-
-  <div id="members">
-    <%= render 'members' %>
-  </div>
-
-  <br>
-
-</div>

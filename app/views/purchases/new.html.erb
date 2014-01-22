@@ -1,5 +1,10 @@
-<h1>Make a purchase for <%=@group.name %></h1>
+<div class="small-10 medium-8 columns small-centered">
+  <h1>Make a Purchase for <%=@group.name %></h1>
 
-<%= render 'purchases/form' %>
+  <%= render 'purchases/form' %>
 
-<%= link_to 'Back', group_path(@group) %>
+  <%= link_to 'Back', group_path(@group) %>
+</div>
+
+
+
