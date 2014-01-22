@@ -9,13 +9,13 @@
     <section class="top-bar-section">
       <ul class="right">
         <%- if user_signed_in? -%>
-          <li class="has-dropdown">
+          <li class="has-dropdown display-mobile">
             <a href="#">My Groups</a>
             <ul class="dropdown">
               <% current_user.groups.each do |group|%>
               <li><%= link_to group.name, group %></li>
               <% end %>
-              <li><%= link_to 'New Group', new_group_path%></li>
+              <li><%= link_to 'Add New Group +', new_group_path%></li>
             </ul>
           </li>
           <li><%= link_to "#{current_user.email}", user_path(current_user)%> </li>

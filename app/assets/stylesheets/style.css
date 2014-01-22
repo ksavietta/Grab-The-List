@@ -45,8 +45,15 @@
   text-align: center;
 }
 
-@media screen and (max-width: 400px) {
+.display-mobile {
+  display:none;
+  background-color: black;
+}
+
+@media only screen and (max-width: 40em) {
   #left-content {display:none;}
+  .display-mobile {display:inline-block;}
+  .hide-mobile {display:none;}
 }
 
 .owes {

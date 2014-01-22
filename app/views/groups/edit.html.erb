@@ -1,19 +1,23 @@
-<h1>Make Changes to <%=@group.name%></h1>
+<%content_for :main_title do %>
+  <div class="small-11 medium-8 columns small-centered">
+    <h1>Make Changes to <%=@group.name%></h1>
+  </div>
+<% end%>
 
-<%= render 'form' %>
+<div class="small-11 medium-8 columns small-centered">
+  <%= render 'form' %>
+</div>
+
+<div class="small-11 medium-8 columns small-centered">
+  <%= render 'edit_group_members' %>
+  <%= link_to 'Destroy Group', group_path(@group), method: :delete, data: { confirm: 'This group will no longer belong to other users. Are you sure you want to delete this group?' } %>
+
+  <br><br>
+
+  <%= link_to 'Back', group_path(@group) %>
+
+</div>
 
 
 
-<br/>
 
-<%= render 'edit_group_members' %>
-
-
-
-
-
-<%= link_to 'Destroy Group', group_path(@group), method: :delete, data: { confirm: 'This group will no longer belong to other users. Are you sure you want to delete this group?' } %>
-
-<br><br>
-
-<%= link_to 'Back', group_path(@group) %>
