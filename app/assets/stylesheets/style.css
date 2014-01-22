@@ -143,7 +143,7 @@
 
 @font-face {
     font-family: 'alexbrush-regular';
-    src: url('/assets/AlexBrush-Regular.ttf');
+    src: font-url("/assets/AlexBrush-Regular.ttf");
     font-weight: normal;
     font-style: normal;
 }
