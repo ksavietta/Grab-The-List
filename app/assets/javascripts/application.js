@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require 'jquery.backstretch'
 //= require_tree .
+
 
 $(function() {
   $(document).foundation();
@@ -22,5 +24,3 @@ $(function() {
 $("tr[data-link]").click(function(e) {
   window.location = this.dataset.link;
 });
-
-

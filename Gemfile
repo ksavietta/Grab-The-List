@@ -41,6 +41,7 @@ gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 gem 'carrierwave'
 gem "fog", "~> 1.19.0"
+gem 'backstretch-rails'
 
 group :development, :test do
   gem 'pry-rails'

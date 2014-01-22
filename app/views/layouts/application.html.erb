@@ -31,5 +31,11 @@
     </div>
 
     <%= javascript_include_tag "application" %>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+         $(".cover").backstretch("<%=image_path('cover.jpg')%>")
+      });
+    </script>
   </body>
 </html>

@@ -6,7 +6,7 @@ class HomeController<ApplicationController
     elsif user_signed_in?
       redirect_to new_group_path
     else
-      new_user_session_path
+      new_user_registration_path
     end
   end
 
