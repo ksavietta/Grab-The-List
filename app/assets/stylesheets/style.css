@@ -52,10 +52,26 @@
   background-color: black;
 }
 
+.cover {
+  height:50%;
+  width: 100%;
+  margin: 0;
+}
+
+.cover-logo {
+  font-family: 'alexbrush-regular';
+  color: white;
+  font-size: 6em;
+  display: block;
+  text-align: center;
+  padding: 100px;
+}
+
 @media only screen and (max-width: 40em) {
   #right-content {display:none;}
   .display-mobile {display:inline-block;}
   .hide-mobile {display:none;}
+  .cover-logo {font-size: 3em;}
 }
 
 .owes {
@@ -134,17 +150,5 @@
   margin: 0 auto;
 }
 
-.cover {
-  height:350px;
-  width: 100%;
-  margin: 0;
-}
-
-.cover-logo {
-  font-family: 'alexbrush-regular';
-  color: white;
-  font-size: 6em;
-  margin-left: 65%;
-}
 
 
