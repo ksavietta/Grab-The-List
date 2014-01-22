@@ -140,14 +140,6 @@
   margin: 0;
 }
 
-
-@font-face {
-    font-family: 'alexbrush-regular';
-    src: url('/assets/AlexBrush-Regular.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .cover-logo {
   font-family: 'alexbrush-regular';
   color: white;

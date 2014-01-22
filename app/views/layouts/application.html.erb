@@ -16,9 +16,11 @@
     <%= render 'layouts/navigation' %>
 
   <% flash.each do |name, msg| -%>
-    <div data-alert class="alert-box <%name == :notice ? "success" : "alert" %>">
+    <div data-alert class="alert-box radius <%name == :notice ? "success" : "alert" %>">
       <%= content_tag :div, msg, class: name %>
+      <a href="#" class="close">&times;</a>
     </div>
+
   <% end -%>
 
     <div class="row">
