@@ -123,13 +123,17 @@
 }
 
 .add-item-button {
-  margin-left: 6%;
+  margin-left: 5%;
 }
 
 .add-item-form input, .add-item-form button {
   display: inline;
   vertical-align: top;
   margin-bottom: 2%;
+}
+
+.add-item-form {
+  text-align: center;
 }
 
 .rename-group-button {

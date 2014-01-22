@@ -1,7 +1,6 @@
 <%= simple_form_for [@group, @item] do |f| %>
   <div class="add-item-form form-inline">
-    <%= f.label :name, "*New Item" %>
-    <%= f.input_field :name %>
+    <%= f.input_field :name, placeholder: "Add New Item" %>
 
     <%= button_tag(type: 'submit', class: "add-item-button tiny") do%>
       <i class="fi-plus large"></i>
