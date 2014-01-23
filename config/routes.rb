@@ -1,14 +1,20 @@
 GtlSecond::Application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "registrations" }
 
   root :to => "home#index"
-  resources :lists, :items, :groups
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+
+  resources :groups
 
   resources :groups do
     resources :items
     resources :purchases
+    resources :group_users, only: [:create, :destroy]
   end
 
+  # route for profile page
+  get '/users/:id', to: 'users#show', as: 'user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

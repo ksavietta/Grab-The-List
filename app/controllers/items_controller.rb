@@ -35,8 +35,9 @@ class ItemsController<ApplicationController
   end
 
   def destroy
+    @group = Group.find(params[:group_id])
     @item.destroy
-    redirect_to items_path
+    redirect_to group_path(@group)
   end
 
   def show

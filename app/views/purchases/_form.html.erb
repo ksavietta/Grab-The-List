@@ -1,4 +1,4 @@
-<%= simple_form_for [@group, @purchase] do |f| %>
+ <%= simple_form_for [@group, @purchase] do |f| %>
   <% if @purchase.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this issue from being saved:</h2>
@@ -12,7 +12,12 @@
   <% end %>
 
   <%= f.input :cost %>
-  <%= f.association :items, :as => :check_boxes, :collection => @group.unpurchased_items%>
+
+  <%= f.association :items, as: :check_boxes, item_wrapper_class: 'item-check-boxes', collection: @group.unpurchased_items%>
+  <div>
+    <%= f.label :receipt_photo, "Receipt Photo" %>
+    <%= f.file_field :receipt_photo %>
+  </div>
   <%= f.button :submit %>
 
 <% end %>

@@ -1,0 +1,25 @@
+<div class="purchases">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3">
+          <h4><%= link_to "#{@group.name}'s Purchases", group_purchases_path(@group) %></h4>
+        </th>
+      </tr>
+      <tr>
+        <th>Made By:</th>
+        <th>Cost:</th>
+        <th>Made on:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @group.ordered_recent_purchases.each do |purchase| %>
+        <tr class="purchase-row" data-link="<%= group_purchase_path(@group, purchase)%>">
+          <td><%= "#{purchase.user.first_name} #{purchase.user.last_name}"%></td>
+          <td><%= purchase.cost %></td>
+          <td><%= purchase.formatted_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,45 @@
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <th colspan=3>
+          <h4>Members</h4>
+        </th>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>$ Spent</th>
+        <th>Owed/Owes</th>
+      </tr>
+    </thead>
+    <% @group.users.each do |user| %>
+      <tr>
+        <td><span data-tooltip class="has-tip" title=<%=user.email%>><%= user.name %></span></td>
+        <td><%= user.find_membership(@group).spent_for_group %></td>
+        <% if user.find_membership(@group).owed%>
+          <td class=owed>Owed:<%= user.find_membership(@group).owed %></td>
+        <% elsif user.find_membership(@group).owes%>
+          <td class=owes>Owes:<%= user.find_membership(@group).owes%></td>
+        <% else %>
+          <td></td>
+        <% end%>
+      </tr>
+    <% end %>
+      <tr>
+        <td>
+          <a href="#" data-reveal-id="myModal" class="button tiny">Add Member</a>
+          <div id="myModal" class="reveal-modal" data-reveal>
+            <p>Add someone to <%=@group.name%></p>
+            <%= simple_form_for [@group, @group_user], controller: :group_user, action: :create do |f|%>
+              <%= f.input :email_address %>
+              <%= f.button :submit, "Add Member", class: "tiny" %>
+            <%end%>
+            <a class="close-reveal-modal">&#215;</a>
+          </div>
+        </td>
+        <td></td>
+        <td><%= link_to "Remove Me From This Group", group_group_user_path(@group, current_user.find_membership(@group)), data: {confirm: "Are you sure you want to remove yourself from #{@group.name}?"}, method: :delete %></td>
+      </tr>
+
+  </tbody>
+</table>

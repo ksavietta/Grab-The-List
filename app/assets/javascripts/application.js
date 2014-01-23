@@ -12,5 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require foundation
+//= require 'jquery.backstretch'
 //= require_tree .
+
+
+$(function() {
+  $(document).foundation();
+});
+
+$("tr[data-link]").click(function(e) {
+  window.location = this.dataset.link;
+});
+
+// $(".item-check-boxes").click(function(e) {
+//    $(e.target).html(e.target.textContent + "+");
+// });

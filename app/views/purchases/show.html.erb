@@ -1,36 +1,57 @@
-<h1>Your Purchase on <%=@purchase.created_at%></h1>
+<div class="medium-6 columns medium-centered" id="main-content">
 
-<p>
-  <strong>Purchased:</strong>
-  <%= @purchase.created_at %>
-</p>
+  <% if @purchase.user == current_user %>
+    <h1>Your Purchase on <%=@purchase.formatted_date%></h1>
+  <% else %>
+    <h1><%= "#{@purchase.user.name}'s purchase on #{@purchase.formatted_date}"%></h1>
+  <%end%>
+  <p>
+    <strong>Purchased:</strong>
+    <%= @purchase.formatted_date %>
+  </p>
 
-<p>
-  <strong>Group You're Purchasing For:</strong>
-  <%= @group.name %>
-</p>
+  <p>
+    <strong>Group Purchased For:</strong>
+    <%= @group.name %>
+  </p>
 
-<p>
-  <strong>Items:</strong>
-  <% @purchase.items.each do |item| %>
-      <% if @purchase.items.count > 1 %>
-        <%= "#{item.name}, " %>
-      <% else %>
-        <%= item.name %>
-      <% end %>
+  <p>
+    <strong>Items:</strong>
+    <% @purchase.items.each do |item| %>
+        <% if @purchase.items.count > 1 %>
+          <% if item == @purchase.items.last %>
+            <%= "#{item.name}" %>
+          <% else%>
+            <%= "#{item.name}, " %>
+          <%end%>
+        <% else %>
+          <%= item.name %>
+        <% end %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Cost:</strong>
+    <%= @purchase.cost%>
+  </p>
+
+  <%= image_tag @purchase.receipt_photo_url.to_s %>
+
+  <p>
+  <%= link_to 'Edit purchase Info', edit_group_purchase_path(@group, @purchase) %>
+  </p>
+
+  <%= link_to "Back to #{@group.name}", group_path(@group) %>
+
+
+  <%content_for :right_side_bar do%>
+
+    <div id="purchases">
+      <%= render 'groups/group_purchases' %>
+    </div>
+
+    <br>
+
   <% end %>
-</p>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @purchase.cost%>
-</p>
-
-
-
-
-<p>
-<%= link_to 'Edit purchase Info', edit_group_purchase_path(@group, @purchase) %>
-</p>
-
-<%= link_to "Back to #{@group.name}", group_path(@group) %>
+</div>

@@ -5,13 +5,14 @@ class PurchasesController < ApplicationController
 # GET /purchases
   # GET /purchases.json
   def index
+    @group = Group.find(params[:group_id])
     @purchases = Purchase.all
   end
 
   # GET /purchases/1
   # GET /purchases/1.json
   def show
-      @group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
   end
 
   # GET /purchases/new
@@ -41,8 +42,9 @@ class PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1
   # PATCH/PUT /issues/1.json
   def update
+    @group = Group.find(params[:group_id])
     if @purchase.update(purchase_params)
-      redirect_to @purchase, notice: 'purchase was successfully updated!'
+      redirect_to group_purchase_path(@group,@purchase), notice: 'purchase was successfully updated!'
     else
       render action: 'edit'
     end
@@ -51,8 +53,9 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
+    @group = Group.find(params[:group_id])
     @purchase.destroy
-    redirect_to purchases_path
+    redirect_to group_purchases_path(@group)
   end
 
   private
@@ -63,7 +66,7 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white purchase through.
     def purchase_params
-      params.require(:purchase).permit(:cost, :user_id, :group_id, item_ids: []  )
+      params.require(:purchase).permit(:cost, :user_id, :group_id, :receipt_photo, item_ids: []  )
     end
 
     def authorize_user

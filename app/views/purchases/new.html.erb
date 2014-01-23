@@ -1,5 +1,15 @@
-<h1>Make a purchase for <%=@group.name %></h1>
+<%content_for :main_title do %>
+  <div class="medium-12 columns group-name">
+    <h1>Make a Purchase for <%=@group.name %></h1>
+  </div>
+<% end %>
 
-<%= render 'purchases/form' %>
+<div class="small-10 medium-8 columns small-centered">
 
-<%= link_to 'Back', group_path(@group) %>
+  <%= render 'purchases/form' %>
+
+  <%= link_to 'Back', group_path(@group) %>
+</div>
+
+
+

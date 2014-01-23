@@ -21,9 +21,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -40,7 +37,12 @@ gem "letter_opener", :group => :development
 
 gem 'simple_form'
 gem 'devise'
-gem 'zurb-foundation'
+gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
+gem 'carrierwave'
+gem "fog", "~> 1.19.0"
+gem 'backstretch-rails'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'pry-rails'
@@ -56,6 +58,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem "mailcatcher"
   gem "rails-erd"
+  gem 'dotenv-rails'
 
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
@@ -63,7 +66,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-livereload', require:false
   gem 'terminal-notifier-guard'
-
 end
 
 

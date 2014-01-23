@@ -1,2 +1,23 @@
+<h1>Purchases</h1>
 
-<h1>WHERE ALL PURCHASES SHOULD BE</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Purchase</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.purchases.each do |purchase| %>
+      <tr>
+        <td><%= link_to "#{purchase.formatted_date} by #{purchase.user.name}", group_purchase_path(@group,purchase) %></td>
+        <td><%= link_to 'Delete Purchase', group_purchase_path(@group,purchase), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Purchase', new_group_purchase_path(@group) %>

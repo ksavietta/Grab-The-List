@@ -21,15 +21,13 @@ class ApplicationController < ActionController::Base
     if current_user.groups == []
       new_group_path
     else
-      groups_path
+      group_path(current_user.default_group)
     end
   end
 
-
-
-  def authorize_user
-    unless user_signed_in? and current_user.is_admin?
-        raise ActionController::RoutingError.new('Not Found')
-      end
-    end
+  # def authorize_user
+  #   unless user_signed_in? and current_user.is_admin?
+  #     raise ActionController::RoutingError.new('Not Found')
+  #   end
+  # end
 end

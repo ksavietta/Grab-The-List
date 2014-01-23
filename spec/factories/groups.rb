@@ -3,5 +3,8 @@ FactoryGirl.define do
     name 'GroupTest'
 
 
+    trait :with_unpurchased do
+      item
+    end
   end
 end

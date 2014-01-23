@@ -1,27 +1,36 @@
-<%content_for :left_side_bar do%>
-<h1>Groups</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Group Name</th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= link_to group.name, group %></td>
-        <td><%= link_to 'Destroy', group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<%content_for :left_side_bar do %>
 
-<%= link_to 'New group', new_group_path %>
-<% end%>
+<p>
+  <strong>Name:</strong>
+  <%= current_user.name %>
+</p>
 
-<h2>Please Select a Group!</h2>
+<p>
+  <strong>Amount Spent This Month:</strong>
+  <%= current_user.total_spent_in_current_month %>
+</p>
+
+<% end %>
+
+<%content_for :main_title do %>
+  <div class="medium-12 columns group-name">
+
+  </div>
+
+
+<%end%>
+
+
+<div class="main-wrapper">
+
+</div>
+
+
+<%content_for :right_side_bar do%>
+  <div id="your-groups">
+    <%= render 'your_groups' %>
+  </div>
+<% end %>

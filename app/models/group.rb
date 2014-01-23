@@ -7,14 +7,15 @@ class Group<ActiveRecord::Base
   has_many :users,
     through: :group_users
 
-  has_many :items
+  has_many :items,
+    inverse_of: :group
 
   has_many :purchases,
     inverse_of: :group,
     dependent: :destroy
 
-  def ordered_purchases
-    self.purchases.order('created_at DESC')
+  def ordered_recent_purchases
+    self.purchases.order('created_at DESC').limit(10)
   end
 
   def purchased_items
@@ -25,5 +26,12 @@ class Group<ActiveRecord::Base
     self.items.where('purchase_id is NULL')
   end
 
+  def total_spent_unsettled
+    total =0.00
+    self.purchases.where(settled_at: nil).each do |purchase|
+      total += purchase.cost
+    end
+    total
+  end
 
 end

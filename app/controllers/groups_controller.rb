@@ -1,14 +1,14 @@
 class GroupsController<ApplicationController
 before_action :set_group, only: [:edit, :update, :destroy, :show]
+before_action :authorize_user, except: [:new, :create]
 
   def new
     @group = Group.new
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
     if @group.save
-      current_user.groups << @group
       redirect_to group_path(@group)
     else
       render 'new'
@@ -16,12 +16,12 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
   end
 
   def edit
-
+    @group_user = GroupUser.new
   end
 
   def update
     if @group.update(group_params)
-      redirect_to @group
+      redirect_to edit_group_path(@group)
     else
       render 'edit'
     end
@@ -37,13 +37,13 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
 
   def destroy
     @group.destroy
-    redirect_to groups_path
+    redirect_to group_path(current_user.default_group)
   end
 
   def show
     @groups = current_user.groups
     @item = Item.new
-
+    @group_user = GroupUser.new
   end
 
   private
@@ -53,6 +53,13 @@ before_action :set_group, only: [:edit, :update, :destroy, :show]
 
   def group_params
     params.require(:group).permit(:name)
+  end
+
+  # makes sure that user is logged in and is part of the group that they want to view
+  def authorize_user
+    unless user_signed_in? && current_user.groups.include?(Group.find(params[:id]))
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
 

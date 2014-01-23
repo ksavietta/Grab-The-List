@@ -1,0 +1,36 @@
+<table class= "opaque">
+  <tbody>
+      <thead>
+        <tr>
+          <th colspan="3"><h4>Members</h4></th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>$ Spent</th>
+          <th>Owed/Owes</th>
+        </tr>
+      </thead>
+    <% @group.users.each do |user| %>
+      <tr>
+        <td><span data-tooltip class="has-tip" title=<%=user.email%>><%= user.name %></span></td>
+        <td><%= user.find_membership(@group).spent_for_group %></td>
+        <% if user.find_membership(@group).owed%>
+          <td class=owed>Owed:<%= user.find_membership(@group).owed %></td>
+        <% elsif user.find_membership(@group).owes%>
+          <td class=owes>Owes:<%= user.find_membership(@group).owes%></td>
+        <% else %>
+          <td></td>
+        <% end%>
+      </tr>
+    <% end %>
+      <tr>
+        <td></td>
+
+        <td>
+
+        </td>
+
+      </tr>
+
+  </tbody>
+</table>

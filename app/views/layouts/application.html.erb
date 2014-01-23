@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Grab The List</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-      <li class="name">
-        <h1><%= link_to "Grab The List", root_path%></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
+    <title>Grab The List</title>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if user_signed_in? -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign In', new_user_session_path%></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path%></li>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic' rel='stylesheet' type='text/css'>
+  </head>
 
-    <% flash.each do |name, msg| -%>
+  <body>
+    <%= render 'layouts/navigation' %>
+
+  <% flash.each do |name, msg| -%>
+    <div data-alert class="alert-box radius <%name == :notice ? "success" : "alert" %>">
       <%= content_tag :div, msg, class: name %>
-    <% end -%>
+      <a href="#" class="close">&times;</a>
+    </div>
+
+  <% end -%>
 
     <div class="row">
-      <div class="medium-3 columns">
-        <%= yield :left_side_bar%>
-      </div>
-      <div class="medium-6 columns"><%= yield %></div>
-      <div class="medium-3 columns">
-        <%= yield :right_side_bar%>
+      <div class="small-12 columns small-centered">
+        <%= yield :main_title%>
       </div>
     </div>
 
-</body>
+    <div class="row">
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        // $(".cover").backstretch("<%=image_path('cover.jpg')%>")
+     $.backstretch("<%=image_path('cover2.JPG')%>")
+        });
+    </script>
+  </body>
 </html>
-
-
-

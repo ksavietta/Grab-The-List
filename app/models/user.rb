@@ -10,6 +10,26 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
+  def default_group
+    self.groups.first
+  end
+
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def total_spent_in_current_month
+    total = 0
+    self.purchases.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day+1.month).each do |purchase|
+      total += purchase.cost
+    end
+    total
+  end
+
+  def find_membership(group)
+    self.group_users.where(group_id: group.id).first
+  end
+
   has_many :group_users,
     inverse_of: :user
 
@@ -20,5 +40,6 @@ class User < ActiveRecord::Base
     through: :groups
 
   has_many :purchases,
-    inverse_of: :user
+    inverse_of: :user,
+    dependent: :destroy
 end

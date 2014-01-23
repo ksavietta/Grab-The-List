@@ -1,6 +1,7 @@
-<h1>Make Changes to Purchase <%=@purchase.created_at%></h1>
+<h1>Make Changes to Purchase <%=@purchase.formatted_date%> made by <%= @purchase.user.name%></h1>
 
-<%= render 'form' %>
+<%= render 'purchased_form' %>
+
 
 <%= link_to 'Show', group_purchase_path(@group, @purchase) %> |
 <%= link_to 'Back', group_purchases_path(@group) %>

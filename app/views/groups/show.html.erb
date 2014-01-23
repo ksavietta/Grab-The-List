@@ -1,71 +1,52 @@
-<% content_for :left_side_bar do%>
-<h1><%=@group.name%> Group</h1>
+<div class="row">
+  <div class="small-12 small-pull-12 medium-3 large-3 columns" id="left-content">
 
-<table>
-  <thead>
-    <tr>
-      <th>Group Name</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= link_to group.name, group %></td>
-        <td><%= link_to 'Destroy', group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div id="your-groups" class="hide-mobile">
+      <%= render 'your_groups' %>
+    </div>
 
-<br>
-<%= link_to 'New group', new_group_path %>
-<% end%>
-
-
-  <p>
-    <strong>Group Name:</strong>
-    <%= @group.name %>
-    <%= link_to 'Edit Group', edit_group_path(@group) %>
-  </p>
-
-  <% @group.unpurchased_items.each do |item| %>
-    <%= item.name %><br/> <br/>
-  <% end %>
-
-  <br/>
-  <%= render 'items/form', group: @group %>
-
-
-  <%= link_to 'Make a Purchase', new_group_purchase_path(@group) %>
-  <br>
-  <br>
-  <%= link_to 'Take me back to my groups, please!', groups_path %>
-
-
-
-<%content_for :right_side_bar do%>
-    <h1>purchases</h1>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Purchase Made By:</th>
-          <th>Cost:</th>
-          <th>Purchase made on:</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @group.ordered_purchases.each do |purchase| %>
-          <tr>
-            <td><%= "#{purchase.user.first_name} #{purchase.user.last_name}"%></td>
-            <td><%= purchase.cost %></td>
-            <td><%= purchase.formatted_date %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div id="members">
+      <%= render 'members' %>
+    </div>
 
     <br>
-    <% end %>
+
+  </div>
+
+
+
+
+  <%content_for :main_title do %>
+    <div class="medium-12 columns group-name">
+      <h1 class="cover-logo"><%=@group.name%></h1>
+    </div>
+  <%end%>
+
+  <div class="small-12 small-push-12 medium-6 large-6 columns" id="main-content">
+
+    <div class="items-form">
+      <%= render 'items/form', group: @group %>
+    </div>
+
+    <table class="items-table">
+      <% @group.unpurchased_items.each do |item| %>
+       <tr>
+        <td>
+          </i><span class="item"><%= item.name %></span><%=link_to "<i class='fi-x-circle large'></i>".html_safe, group_item_path(@group, item), method: :delete%>
+        </td>
+        </tr>
+      <% end %>
+    </table>
+
+      <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button purchase-button" %>
+
+  </div>
+
+
+  <div class="small-12 medium-3 large-3 columns" id="right-content">
+    <div id="purchases">
+      <%= render 'group_purchases' %>
+    </div>
+  </div>
+</div>
+
