@@ -1,23 +1,31 @@
- <%= simple_form_for [@group, @purchase] do |f| %>
-  <% if @purchase.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this issue from being saved:</h2>
+ <div class="purchases-form">
+   <%= simple_form_for [@group, @purchase] do |f| %>
+    <% if @purchase.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this issue from being saved:</h2>
 
-      <ul>
-      <% @purchase.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @purchase.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.input :cost %>
+
+    <div class="row">
+      <div class="medium-6 columns">
+      <%= f.association :items, as: :check_boxes, item_wrapper_class: 'item-check-boxes', collection: @group.unpurchased_items%>
+      </div>
     </div>
+
+
+    <div>
+      <%= f.label :receipt_photo, "Receipt Photo" %>
+      <%= f.file_field :receipt_photo %>
+    </div>
+    <%= f.button :submit %>
+
   <% end %>
-
-  <%= f.input :cost %>
-
-  <%= f.association :items, as: :check_boxes, item_wrapper_class: 'item-check-boxes', collection: @group.unpurchased_items%>
-  <div>
-    <%= f.label :receipt_photo, "Receipt Photo" %>
-    <%= f.file_field :receipt_photo %>
-  </div>
-  <%= f.button :submit %>
-
-<% end %>
+</div>

@@ -25,6 +25,15 @@ $("tr[data-link]").click(function(e) {
   window.location = this.dataset.link;
 });
 
-// $(".item-check-boxes").click(function(e) {
-//    $(e.target).html(e.target.textContent + "+");
-// });
+var clicked = false;
+
+$(".item-check-boxes").click(function(e) {
+  if (clicked === false) {
+    $(e.target).css('background-color', 'green');
+    clicked = true;
+  } else {
+    $(e.target).css('background-color', 'white');
+    clicked = false;
+  }
+});
+

@@ -28,18 +28,18 @@
   padding-top: 2%;
  }
 
-.items-table {
-  opacity: 0.80;
+.custom-table {
+  opacity: .95;
   width:100%;
   max-width:100%;
 }
 
-.items-table tr {
+.custom-table tr {
   list-style: none;
   text-align: center;
 }
 
-.items-table tr:first-child {
+.custom-table tr:first-child {
   margin-top: 25px;
 }
 
@@ -154,8 +154,7 @@
   width: 100%;
 }
 
-
-div.centered-table
+/*div.centered-table
 {
     text-align: center;
 }
@@ -163,22 +162,28 @@ div.centered-table table
 {
     margin: 0 auto;
     text-align: left;
-}
+}*/
 
 
 /*check boxes for making a purchase*/
 .item-check-boxes {
-  width: 100%;
+  width: 80%;
   height: 1.5em;
   margin: 0 auto;
   font-size: 1em;
 }
 
-input[type='checkbox'] {
-/*    display:none;
-*/}
+/*input[type='checkbox'] {
+    display:none;
+}
+*/
+.faded-background {
+  background-color: white;
+  opacity: 0.90;
+}
 
+.purchases-form {
 
-
+}
 
 
