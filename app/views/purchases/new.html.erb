@@ -1,5 +1,10 @@
+<%content_for :main_title do %>
+  <div class="medium-12 columns group-name">
+    <h1>Make a Purchase for <%=@group.name %></h1>
+  </div>
+<% end %>
+
 <div class="small-10 medium-8 columns small-centered">
-  <h1>Make a Purchase for <%=@group.name %></h1>
 
   <%= render 'purchases/form' %>
 

@@ -24,3 +24,7 @@ $(function() {
 $("tr[data-link]").click(function(e) {
   window.location = this.dataset.link;
 });
+
+// $(".item-check-boxes").click(function(e) {
+//    $(e.target).html(e.target.textContent + "+");
+// });

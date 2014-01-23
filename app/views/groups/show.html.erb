@@ -18,23 +18,25 @@
 
   <%content_for :main_title do %>
     <div class="medium-12 columns group-name">
-      <h1><strong><%=@group.name%></strong></h1>
+      <h1 class="cover-logo"><%=@group.name%></h1>
     </div>
   <%end%>
 
   <div class="small-12 small-push-12 medium-6 large-6 columns" id="main-content">
 
-    <div class="ite
-  ms-form">
+    <div class="items-form">
       <%= render 'items/form', group: @group %>
     </div>
 
-    <ul class= "items-list">
+    <table class="items-table">
       <% @group.unpurchased_items.each do |item| %>
-        <li></i><span class="item"><%= item.name %></span><%=link_to "<i class='fi-x-circle large'></i>".html_safe, group_item_path(@group, item), method: :delete%></li>
+       <tr>
+        <td>
+          </i><span class="item"><%= item.name %></span><%=link_to "<i class='fi-x-circle large'></i>".html_safe, group_item_path(@group, item), method: :delete%>
+        </td>
+        </tr>
       <% end %>
-    </ul>
-
+    </table>
 
       <%= link_to 'Make a Purchase', new_group_purchase_path(@group), class: "button purchase-button" %>
 
