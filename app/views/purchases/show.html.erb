@@ -1,9 +1,10 @@
-<div class="medium-6 columns medium-centered" id="main-content">
+<div class="medium-6 columns medium-centered faded-background" id="purchase-show">
+
 
   <% if @purchase.user == current_user %>
-    <h1>Your Purchase on <%=@purchase.formatted_date%></h1>
+    <h3>Your Purchase on <%=@purchase.formatted_date%></h3>
   <% else %>
-    <h1><%= "#{@purchase.user.name}'s purchase on #{@purchase.formatted_date}"%></h1>
+    <h3><%= "#{@purchase.user.name}'s purchase on #{@purchase.formatted_date}"%></h3>
   <%end%>
   <p>
     <strong>Purchased:</strong>
@@ -41,7 +42,7 @@
   <%= link_to 'Edit purchase Info', edit_group_purchase_path(@group, @purchase) %>
   </p>
 
-  <%= link_to "Back to #{@group.name}", group_path(@group) %>
+  <%= link_to "Back to #{@group.name}", group_path(@group), class: "button" %>
 
 
   <%content_for :right_side_bar do%>
