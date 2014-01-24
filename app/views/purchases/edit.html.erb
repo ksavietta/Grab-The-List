@@ -1,7 +1,10 @@
-<h1>Make Changes to Purchase <%=@purchase.formatted_date%> made by <%= @purchase.user.name%></h1>
+
+<div class="medium-6 columns medium-centered faded-background" id="purchase-show">
 
 <%= render 'purchased_form' %>
 
 
 <%= link_to 'Show', group_purchase_path(@group, @purchase) %> |
 <%= link_to 'Back', group_purchases_path(@group) %>
+
+</div>

@@ -27,13 +27,13 @@ $("tr[data-link]").click(function(e) {
 
 var clicked = false;
 
-$(".item-check-boxes").click(function(e) {
-  if (clicked === false) {
-    $(e.target).css('background-color', 'green');
-    clicked = true;
-  } else {
-    $(e.target).css('background-color', 'white');
-    clicked = false;
-  }
-});
+// $(".item-check-boxes").click(function(e) {
+//   if (clicked === false) {
+//     $(e.target).css('background-color', 'green');
+//     clicked = true;
+//   } else {
+//     $(e.target).css('background-color', 'white');
+//     clicked = false;
+//   }
+// });
 

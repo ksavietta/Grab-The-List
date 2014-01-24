@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="small-12 small-push-12 medium-6 large-6 columns small-centered" id="main-content">
+  <div class="small-12 small-push-12 medium-6 large-6 columns small-centered faded-background" id="main-content">
 
-    <h1>Purchases</h1>
+    <h2>Purchases</h2>
 
     <table>
       <thead>
@@ -13,7 +13,7 @@
 
       <tbody>
         <% @group.purchases.each do |purchase| %>
-          <tr>
+          <tr class="purchase-row">
             <td><%= link_to "#{purchase.formatted_date} by #{purchase.user.name}", group_purchase_path(@group,purchase) %></td>
             <td><%= link_to 'Delete Purchase', group_purchase_path(@group,purchase), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
@@ -23,6 +23,8 @@
 
     <br>
 
-    <%= link_to 'New Purchase', new_group_purchase_path(@group) %>
+    <%= link_to 'New Purchase', new_group_purchase_path(@group) %> |
+
+    <%= link_to "Back to #{@group.name}", group_path(@group) %>
   </div>
 </div>

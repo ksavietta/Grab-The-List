@@ -1,4 +1,4 @@
-<div class="medium-6 columns medium-centered faded-background" id="purchase-show">
+<div class="small-12 medium-8 columns faded-background" id="purchase-show">
 
 
   <% if @purchase.user == current_user %>
@@ -47,7 +47,7 @@
 
   <%content_for :right_side_bar do%>
 
-    <div id="purchases">
+    <div id="purchases" class="small-6 medium-4 columns">
       <%= render 'groups/group_purchases' %>
     </div>
 

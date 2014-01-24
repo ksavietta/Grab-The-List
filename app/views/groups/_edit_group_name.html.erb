@@ -1,9 +1,9 @@
 <%= simple_form_for(@group) do |f| %>
 <div class="add-item-form form-inline">
-  <h1>New Group</h1>
+  <h1>Make Changes to <%=@group.name%></h1>
   <%= f.input_field :name %>
   <%= button_tag(type: 'submit', class: "rename-group-button tiny ") do%>
-      Make Group
+      Rename Group
   <%end%>
 </div>
 <% end %>

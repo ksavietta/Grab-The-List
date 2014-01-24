@@ -31,7 +31,10 @@
 
     <div class="row">
       <%= yield %>
+      <%= yield :right_side_bar%>
     </div>
+
+
 
     <%= javascript_include_tag "application" %>
 

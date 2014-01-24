@@ -14,7 +14,7 @@ class ItemsController<ApplicationController
         notice: "Your item was created successfully."
     else
       flash.now[:notice] = "There was an issue with your item. Please try again."
-      render action: "../groups/show"
+        redirect_to group_path(@group)
     end
   end
 

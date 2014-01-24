@@ -64,7 +64,7 @@
 }
 
 .cover {
-  height:50%;
+  height:25%;
   width: 100%;
   margin: 0;
 }
@@ -75,7 +75,7 @@
   font-size: 6em;
   display: block;
   text-align: center;
-  padding: 100px;
+  padding: 50px;
 }
 
 @media only screen and (max-width: 40em) {
@@ -94,11 +94,11 @@
 }
 
 .purchase-row:hover {
-  background-color: #FFE7BA;
+  background-color: #70BF76;
 }
 
 .group-row:hover {
-  background-color: #FFE7BA;
+  background-color: #70BF76;
 }
 
 .items-form .button {
@@ -175,10 +175,10 @@
 
 .faded-background {
   background-color: white;
-  opacity: 0.90;
+  opacity: 0.95;
   padding:2%;
-  margin-top:2%;
 }
+
 
 .destroy-btn {
   float: right;
@@ -188,5 +188,10 @@
 .back-btn {
  margin-left:2%;
 }
+
+.table-width {
+  width:100%;
+}
+
 
 
