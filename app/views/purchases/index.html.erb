@@ -1,23 +1,28 @@
-<h1>Purchases</h1>
+<div class="row">
+  <div class="small-12 small-push-12 medium-6 large-6 columns small-centered" id="main-content">
 
-<table>
-  <thead>
-    <tr>
-      <th>Purchase</th>
-      <th></th>
-    </tr>
-  </thead>
+    <h1>Purchases</h1>
 
-  <tbody>
-    <% @group.purchases.each do |purchase| %>
-      <tr>
-        <td><%= link_to "#{purchase.formatted_date} by #{purchase.user.name}", group_purchase_path(@group,purchase) %></td>
-        <td><%= link_to 'Delete Purchase', group_purchase_path(@group,purchase), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>Purchase</th>
+          <th></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @group.purchases.each do |purchase| %>
+          <tr>
+            <td><%= link_to "#{purchase.formatted_date} by #{purchase.user.name}", group_purchase_path(@group,purchase) %></td>
+            <td><%= link_to 'Delete Purchase', group_purchase_path(@group,purchase), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Purchase', new_group_purchase_path(@group) %>
+    <br>
+
+    <%= link_to 'New Purchase', new_group_purchase_path(@group) %>
+  </div>
+</div>

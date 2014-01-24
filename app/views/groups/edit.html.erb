@@ -10,11 +10,13 @@
 
 <div class="small-11 medium-8 columns small-centered">
   <%= render 'edit_group_members' %>
-  <%= link_to 'Destroy Group', group_path(@group), method: :delete, data: { confirm: 'This group will no longer belong to other users. Are you sure you want to delete this group?' } %>
 
-  <br><br>
+  <%= link_to 'Back', group_path(@group), class:"button back-btn"%>
 
-  <%= link_to 'Back', group_path(@group) %>
+  <%= link_to 'Destroy Group', group_path(@group), method: :delete, data: { confirm: 'This group will no longer belong to other users. Are you sure you want to delete this group?' }, class:"tiny button destroy-btn" %>
+
+
+
 
 </div>
 

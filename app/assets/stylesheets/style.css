@@ -159,16 +159,6 @@
   width: 100%;
 }
 
-/*div.centered-table
-{
-    text-align: center;
-}
-div.centered-table table
-{
-    margin: 0 auto;
-    text-align: left;
-}*/
-
 
 /*check boxes for making a purchase*/
 .item-check-boxes {
@@ -182,13 +172,21 @@ div.centered-table table
     display:none;
 }
 */
+
 .faded-background {
   background-color: white;
   opacity: 0.90;
+  padding:2%;
+  margin-top:2%;
 }
 
-.purchases-form {
+.destroy-btn {
+  float: right;
+  margin-right: 2%;
+}
 
+.back-btn {
+ margin-left:2%;
 }
 
 
