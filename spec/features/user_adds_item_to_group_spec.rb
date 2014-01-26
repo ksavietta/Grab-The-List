@@ -9,15 +9,15 @@ feature 'user adds item to group', %Q{
     user = FactoryGirl.create(:user)
 
     sign_in_as user
-    fill_in 'Name', with: "GroupTest"
-    click_on "Create Group"
+    fill_in 'group_name', with: "GroupTest"
+    click_on "Make Group"
     expect(page).to have_content("GroupTest")
 
     click_link "GroupTest"
     expect(page).to have_content("GroupTest")
 
-    fill_in 'New Item:', with: "Eggs"
-    click_button "Add Item"
+    fill_in 'item_name', with: "Eggs"
+    click_on 'add-item-button'
 
     expect(page).to have_content("Eggs")
   end
