@@ -11,8 +11,10 @@ describe Group do
   it {should have_many(:purchases).dependent(:destroy)}
 
   it 'should be able to find groups unpurchased items' do
-
+    group = FactoryGirl.build(:group)
 
   end
 
 end
+
+

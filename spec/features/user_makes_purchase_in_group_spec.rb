@@ -9,17 +9,15 @@ feature 'user makes a purchase', %Q{
     user = FactoryGirl.create(:user)
 
     sign_in_as user
-    fill_in 'Name', with: "GroupTest"
-    click_on "Create Group"
+    create_group
     expect(page).to have_content("GroupTest")
     click_link "GroupTest"
-    fill_in "New Item:", with: "Eggs"
-    click_button "Add Item"
-    fill_in "New Item:", with: "Milk"
-    click_button "Add Item"
+
+    add_two_items
+    expect(page).to have_content("Eggs", "Milk")
 
     click_link "Make a Purchase"
-    expect(page).to have_content("Make a purchase for GroupTest")
+    expect(page).to have_content("Make a Purchase for GroupTest")
     fill_in "Cost", with: "23"
     check "Eggs"
     click_button "Create Purchase"
@@ -32,17 +30,13 @@ feature 'user makes a purchase', %Q{
     user = FactoryGirl.create(:user)
 
     sign_in_as user
-    fill_in 'Name', with: "GroupTest"
-    click_on "Create Group"
+    create_group
     expect(page).to have_content("GroupTest")
     click_link "GroupTest"
-    fill_in "New Item:", with: "Eggs"
-    click_button "Add Item"
-    fill_in "New Item:", with: "Milk"
-    click_button "Add Item"
+    add_two_items
 
     click_link "Make a Purchase"
-    expect(page).to have_content("Make a purchase for GroupTest")
+    expect(page).to have_content("Make a Purchase for GroupTest")
     fill_in "Cost", with: "23"
     check "Eggs"
     click_button "Create Purchase"
@@ -60,17 +54,13 @@ feature 'user makes a purchase', %Q{
     user = FactoryGirl.create(:user)
 
     sign_in_as user
-    fill_in 'Name', with: "GroupTest"
-    click_on "Create Group"
+    create_group
     expect(page).to have_content("GroupTest")
     click_link "GroupTest"
-    fill_in "New Item:", with: "Eggs"
-    click_button "Add Item"
-    fill_in "New Item:", with: "Milk"
-    click_button "Add Item"
+    add_two_items
 
     click_link "Make a Purchase"
-    expect(page).to have_content("Make a purchase for GroupTest")
+    expect(page).to have_content("Make a Purchase for GroupTest")
     fill_in "Cost", with: "23"
     check "Eggs"
     click_button "Create Purchase"
@@ -80,25 +70,20 @@ feature 'user makes a purchase', %Q{
     click_link "Back to GroupTest"
     expect(page).to have_content("GroupTest")
 
-    click_link "View"
-    expect(page).to have_content("Eggs")
+    expect(page).to have_content("Milk")
   end
 
    scenario 'you can see that purchase on the purchases' do
     user = FactoryGirl.create(:user)
 
     sign_in_as user
-    fill_in 'Name', with: "GroupTest"
-    click_on "Create Group"
+    create_group
     expect(page).to have_content("GroupTest")
     click_link "GroupTest"
-    fill_in "New Item:", with: "Eggs"
-    click_button "Add Item"
-    fill_in "New Item:", with: "Milk"
-    click_button "Add Item"
+    add_two_items
 
     click_link "Make a Purchase"
-    expect(page).to have_content("Make a purchase for GroupTest")
+    expect(page).to have_content("Make a Purchase for GroupTest")
     fill_in "Cost", with: "23"
     check "Eggs"
     click_button "Create Purchase"
@@ -107,13 +92,11 @@ feature 'user makes a purchase', %Q{
 
     click_link "Back to GroupTest"
     expect(page).to have_content("GroupTest")
+    expect(page).to have_content("Milk")
 
-    click_link "View"
-    expect(page).to have_content("Eggs")
-    click_link "Back"
     expect(page).to have_content("Purchases")
     click_link "Purchases"
     expect(page).to have_content("Purchases")
-    expect(page).to have_content("#{Date.today}")
+    expect(page).to have_content("#{Date.today.strftime("%m-%d-%Y")}")
   end
 end
