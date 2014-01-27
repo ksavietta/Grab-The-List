@@ -1,9 +1,13 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="faded-background">
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
 
-<p>
-  <strong>Amount Spent This Month:</strong>
-  <%= @user.total_spent_in_current_month %>
-</p>
+  <p>
+    <strong>Amount Spent This Month:</strong>
+    <%= @user.total_spent_in_current_month %>
+  </p>
+
+  <%= link_to "Back to Home", root_path %>
+</div>
