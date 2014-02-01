@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20140117120655) do
     t.integer  "group_id",                              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
     t.string   "receipt_photo"
     t.datetime "settled_at"
   end
