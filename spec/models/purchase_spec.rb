@@ -12,8 +12,7 @@ describe Purchase do
 
   it 'should have a formatted date' do
     purchase = FactoryGirl.create(:purchase)
-    binding.pry
-    expect(purchase.formatted_date).to eq(1)
+    expect(purchase.formatted_date).to eq(Time.now.strftime("%m-%d-%Y"))
   end
 end
 
