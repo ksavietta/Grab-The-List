@@ -6,10 +6,7 @@ FactoryGirl.define do
     cost 10
 
     after(:build) do |purchase|
-      purchase.items << FactoryGirl.build(:item, purchase: purchase)
+      purchase.items << FactoryGirl.build(:item, :purchased, purchase: purchase)
     end
   end
 end
-
-
-

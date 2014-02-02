@@ -21,7 +21,6 @@ describe Group do
 
     expect(purchased_items).to eq(group.purchased_items)
     expect(unpurchased_items).to eq(group.unpurchased_items)
-
   end
 
 end

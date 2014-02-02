@@ -14,5 +14,7 @@ describe Purchase do
     purchase = FactoryGirl.create(:purchase)
     expect(purchase.formatted_date).to eq(Time.now.strftime("%m-%d-%Y"))
   end
+
+
 end
 
