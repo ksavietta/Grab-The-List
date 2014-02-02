@@ -11,7 +11,7 @@ describe ReceiptPhotoUploader do
   end
 
   let(:path) do
-    Rails.root.join('spec/file_fixtures/valid_car_image.png')
+    Rails.root.join('spec/file_fixtures/valid_receipt_image.jpg')
   end
 
   before do
