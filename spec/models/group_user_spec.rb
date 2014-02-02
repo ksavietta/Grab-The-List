@@ -4,4 +4,6 @@ describe GroupUser do
   it { should belong_to(:group)}
   it { should belong_to(:user)}
 
+  it {should have_many(:purchases)}
+
 end
