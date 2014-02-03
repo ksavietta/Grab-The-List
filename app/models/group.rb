@@ -11,7 +11,6 @@ class Group<ActiveRecord::Base
     inverse_of: :group
 
   has_many :purchases,
-    through: :group_users,
     inverse_of: :group,
     dependent: :destroy
 

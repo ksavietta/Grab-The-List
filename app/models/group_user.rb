@@ -26,7 +26,7 @@ class GroupUser<ActiveRecord::Base
 
   def spent_for_group
     total = 0.00
-    self.purchases.where(settled_at: nil).each do |unsettled_purchase|
+    self.user.purchases.where(group_id: self.group.id).where(settled_at: nil).each do |unsettled_purchase|
       total += unsettled_purchase.cost
     end
     total

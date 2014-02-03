@@ -29,10 +29,11 @@ class PurchasesController < ApplicationController
   # POST /purchases
   # POST /purchases.json
   def create
-    @membership = GroupUser.where(group_id: params[:group_id], user_id: current_user.id).first
-    @purchase = @membership.purchases.build(purchase_params)
+    @group = Group.find(params[:group_id])
+    @purchase = @group.purchases.build(purchase_params)
+    @purchase.user = current_user
     if @purchase.make_purchase(purchase_params[:item_ids])
-      redirect_to group_purchase_path(@membership.group, @purchase), notice: 'purchase was successfully created!'
+      redirect_to group_purchase_path(@group, @purchase), notice: 'purchase was successfully created!'
     else
       render action: 'new'
     end
