@@ -32,7 +32,7 @@ class PurchasesController < ApplicationController
     @membership = GroupUser.where(group_id: params[:group_id], user_id: current_user.id).first
     @purchase = @membership.purchases.build(purchase_params)
     if @purchase.make_purchase(purchase_params[:item_ids])
-      redirect_to group_purchase_path(@group_user.group, @purchase), notice: 'purchase was successfully created!'
+      redirect_to group_purchase_path(@membership.group, @purchase), notice: 'purchase was successfully created!'
     else
       render action: 'new'
     end

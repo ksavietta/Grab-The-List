@@ -13,9 +13,6 @@ class Purchase < ActiveRecord::Base
     inverse_of: :purchases,
     dependent: :destroy
 
-  belongs_to :user, inverse_of: :purchases
-  belongs_to :group, inverse_of: :purchases
-
   mount_uploader :receipt_photo, ReceiptPhotoUploader
 
   def make_purchase(item_ids)

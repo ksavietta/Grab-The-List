@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
     through: :groups
 
   has_many :purchases,
+    through: :group_users,
     inverse_of: :user,
     dependent: :destroy
 end
