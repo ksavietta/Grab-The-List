@@ -12,6 +12,7 @@ class Group<ActiveRecord::Base
 
   has_many :purchases,
     inverse_of: :group,
+    through: :group_users,
     dependent: :destroy
 
   def ordered_recent_purchases

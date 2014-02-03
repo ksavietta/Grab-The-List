@@ -35,5 +35,5 @@ describe User do
 
   it { should have_many(:items).through(:groups)}
 
-  it {should have_many(:purchases)}
+  it {should have_many(:purchases).through(:group_users)}
 end

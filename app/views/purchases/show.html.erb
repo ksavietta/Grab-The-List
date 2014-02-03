@@ -4,7 +4,7 @@
   <% if @purchase.user == current_user %>
     <h3>Your Purchase on <%=@purchase.formatted_date%></h3>
   <% else %>
-    <h3><%= "#{@purchase.user.name}'s purchase on #{@purchase.formatted_date}"%></h3>
+    <h3><%= "#{@purchase.user_name}'s purchase on #{@purchase.formatted_date}"%></h3>
   <%end%>
   <p>
     <strong>Purchased:</strong>

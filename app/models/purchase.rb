@@ -38,4 +38,8 @@ class Purchase < ActiveRecord::Base
     self.created_at.strftime("%m-%d-%Y")
   end
 
+  def user_name
+    self.group_user.user.name
+  end
+
 end

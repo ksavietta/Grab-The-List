@@ -15,7 +15,7 @@
     <tbody>
       <% @group.ordered_recent_purchases.each do |purchase| %>
         <tr class="purchase-row" data-link="<%= group_purchase_path(@group, purchase)%>">
-          <td><%= "#{purchase.user.first_name} #{purchase.user.last_name}"%></td>
+          <td><%= "#{purchase.user_name}"%></td>
           <td><%= purchase.cost %></td>
           <td><%= purchase.formatted_date %></td>
         </tr>

@@ -8,7 +8,7 @@ describe Group do
 
   it {should have_many :items}
 
-  it {should have_many(:purchases).dependent(:destroy)}
+  it {should have_many(:purchases).through(:group_users).dependent(:destroy)}
 
   it 'should be able to find groups unpurchased and purchased items' do
     # group = FactoryGirl.create(:group)
