@@ -25,4 +25,6 @@ describe GroupUser do
     expect(membership.group.users.count).to eq(1)
   end
 
+
+
 end
