@@ -42,4 +42,8 @@ class Purchase < ActiveRecord::Base
     self.group_user.user.name
   end
 
+  def group_name
+    self.group_user.group.name
+  end
+
 end

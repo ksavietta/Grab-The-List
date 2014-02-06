@@ -8,6 +8,7 @@ describe GroupUser do
 
   it {should have_many(:purchases)}
 
+  it {should have_many(:balances)}
 
   it 'should query an existing user by email using virtual attribute setter' do
     user2 = FactoryGirl.create(:user)
@@ -24,7 +25,5 @@ describe GroupUser do
     membership.email_address=("notarealaddress@example.com")
     expect(membership.group.users.count).to eq(1)
   end
-
-
 
 end
